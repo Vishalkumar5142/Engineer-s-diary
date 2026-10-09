@@ -1,0 +1,3116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineer's Diary - Learn • Code • Grow | Premium Notes for B.Tech & CSE Students</title>
+  <meta name="description" content="Premium programming notes, study resources and digital learning materials for B.Tech & CSE students.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" onclick="navigateTo('home')">
+        <div class="brand-logo-frame">
+          <img src="assets/images/logo.jpg" alt="Engineer's Diary Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">
+            Engineer's <span class="brand-highlight">Diary</span>
+            <span class="verified-badge-icon" title="Verified Engineering Hub">✓</span>
+          </div>
+          <span class="brand-tagline">LEARN <span class="dot">•</span> CODE <span class="dot">•</span> BUILD <span class="dot">•</span> GET PLACED</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active" onclick="setActiveNav(this)">Home</a>
+        <a href="#notes-store" class="nav-link" onclick="setActiveNav(this)">Notes</a>
+        <a href="#coding-zone" class="nav-link" onclick="setActiveNav(this)">Coding</a>
+        <a href="#projects" class="nav-link" onclick="setActiveNav(this)">Projects</a>
+        <a href="#placement" class="nav-link" onclick="setActiveNav(this)">Placement</a>
+        <a href="#aiml-roadmap" class="nav-link" onclick="setActiveNav(this)">AI/ML</a>
+        <a href="#btech-roadmap" class="nav-link" onclick="setActiveNav(this)">Roadmaps</a>
+        <a href="#free-resources" class="nav-link" onclick="setActiveNav(this)">Resources</a>
+        <a href="#exam-zone" class="nav-link" onclick="setActiveNav(this)">Exams</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="header-search-wrapper">
+        <div class="search-input-group">
+          <input type="text" id="headerSearchInput" placeholder="Search notes..." autocomplete="off">
+          <button class="search-icon-btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+      </div>
+
+      <!-- Header Actions (Icons, User Profile & Admin) -->
+      <div class="header-actions">
+        <!-- Dark / Light Theme Toggle -->
+        <button class="btn-theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="Switch Dark / Light Mode" aria-label="Toggle Theme">
+          🌙
+        </button>
+
+        <!-- Cart Icon -->
+        <button class="cart-icon-btn" onclick="openCartDrawer()" aria-label="Shopping Cart" title="View Cart">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge-pill" id="cartCountBadge">0</span>
+        </button>
+
+        <!-- Dynamic User Auth State (Avatar & Student Info) -->
+        <div id="headerAuthContainer" class="header-auth-wrap">
+          <button class="btn-header-login" onclick="openAuthModal('login')">Login</button>
+        </div>
+
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="mobile-nav-links">
+        <a href="#home" onclick="closeMobileNav()">Home</a>
+        <a href="#notes-store" onclick="closeMobileNav()">Notes Store</a>
+        <a href="#coding-zone" onclick="closeMobileNav()">Coding Zone</a>
+        <a href="#projects" onclick="closeMobileNav()">Projects Hub</a>
+        <a href="#placement" onclick="closeMobileNav()">Placement Preparation</a>
+        <a href="#aiml-roadmap" onclick="closeMobileNav()">AI/ML Roadmap</a>
+        <a href="#btech-roadmap" onclick="closeMobileNav()">4-Year Roadmap</a>
+        <a href="#free-resources" onclick="closeMobileNav()">Free Resources</a>
+        <a href="#exam-zone" onclick="closeMobileNav()">Exam Zone</a>
+        <a href="#daily-dose" onclick="closeMobileNav()">Daily Engineering</a>
+        <a href="#community" onclick="closeMobileNav()">Community</a>
+        <button class="btn btn-outline w-100 mt-2" onclick="closeMobileNav(); toggleTheme();">🌓 Switch Dark/Light Mode</button>
+        <button class="btn btn-primary w-100 mt-2" onclick="closeMobileNav(); openAccountModal();">My Account &amp; DP</button>
+        <a href="/admin" target="_blank" class="btn btn-outline w-100 mt-2" onclick="closeMobileNav()">⚙️ Private Admin Console</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- HERO SECTION (MATCHING BRAND & STATS) -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        
+        <!-- Left Hero Column -->
+        <div class="hero-text-col">
+          <div class="hero-partner-badge">
+            <span>🎓</span> Your Engineering Partner
+          </div>
+
+          <h1 class="hero-title" id="dynHeroHeadline">
+            Learn. Build.<br>
+            <span class="text-blue">Become an</span> <span class="text-purple">Engineer.</span>
+          </h1>
+
+          <p class="hero-subheading" id="dynHeroSubheading">
+            Programming Notes, B.Tech Resources, Roadmaps &amp; Projects — All in One Place.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#notes-store" class="btn btn-hero-buy">
+              Explore Notes →
+            </a>
+            <a href="#btech-roadmap" class="btn btn-hero-free">
+              🗺️ View Roadmaps
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-trust-row">
+            <span class="trust-item">
+              <span class="trust-icon-circle">✓</span> Instant PDF Download
+            </span>
+            <span class="trust-item">
+              <span class="trust-icon-circle">✓</span> 500+ Coding Problems
+            </span>
+            <span class="trust-item">
+              <span class="trust-icon-circle">✓</span> Trusted by 50K+ Students
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual (Real Product & Study Desk Showcase) -->
+        <div class="hero-visual-wrapper">
+          <div class="hero-image-frame" onclick="openPreviewModal(5)" style="cursor:pointer;" title="Click to Preview Handwritten Notes">
+            <img src="assets/images/notes_tablet_showcase.jpg" 
+                 alt="Real handwritten engineering notes on iPad with physical Engineer's Diary notebook" 
+                 class="hero-art-img">
+            
+            <!-- Quick Sample Note Overlay -->
+            <div class="hero-preview-overlay">
+              <span class="btn-hero-preview-pill">👁️ Click to Sample Preview</span>
+            </div>
+          </div>
+
+          <!-- Floating Live Proof Badge (Top Left) -->
+          <div class="hero-floating-stat-badge stat-top-left">
+            <div class="stat-star-icon">⭐</div>
+            <div class="stat-meta">
+              <strong>4.9 / 5.0 Rating</strong>
+              <span>15,000+ B.Tech Students</span>
+            </div>
+          </div>
+
+          <!-- Floating Exam-Ready Badge (Bottom Right) -->
+          <div class="hero-floating-stat-badge stat-bottom-right">
+            <span class="live-dot-pulse"></span>
+            <div class="stat-meta">
+              <strong>Handwritten &amp; Exam-Ready</strong>
+              <span>Instant Downloadable PDFs</span>
+            </div>
+          </div>
+
+          <!-- Floating Tech Stack Pill (Bottom Left) -->
+          <div class="hero-floating-tech-pill">
+            <span class="pill-code-sym">&lt;/&gt;</span>
+            <span>DSA • Python • Java • C++ • DBMS • AI/ML</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 6 Essential Hub Cards: Programming, B.Tech Notes, AI/ML, DSA, Projects, Placement -->
+      <div class="container hero-six-cards-grid">
+        
+        <!-- 1. Programming -->
+        <a href="#coding-zone" class="hero-card-tile card-gradient-blue" onclick="filterByCategory('Python')">
+          <div class="card-icon-pill">💻</div>
+          <div class="card-text-block">
+            <h3>Programming</h3>
+            <p>Python • Java • C++ • JS • OOPs</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+        <!-- 2. B.Tech Notes -->
+        <a href="#notes-store" class="hero-card-tile card-gradient-indigo" onclick="filterByCategory('B.Tech')">
+          <div class="card-icon-pill">📚</div>
+          <div class="card-text-block">
+            <h3>B.Tech Notes</h3>
+            <p>Semester 1-8 • Handcrafted &amp; Exam-Ready</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+        <!-- 3. AI/ML -->
+        <a href="#aiml-roadmap" class="hero-card-tile card-gradient-cyan">
+          <div class="card-icon-pill">🤖</div>
+          <div class="card-text-block">
+            <h3>AI / ML</h3>
+            <p>Math • Neural Nets • PyTorch • Roadmaps</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+        <!-- 4. DSA -->
+        <a href="#notes-store" class="hero-card-tile card-gradient-emerald" onclick="filterByCategory('DSA')">
+          <div class="card-icon-pill">⚡</div>
+          <div class="card-text-block">
+            <h3>DSA Mastery</h3>
+            <p>Arrays • Trees • Graphs • 500+ LeetCode</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+        <!-- 5. Projects -->
+        <a href="#projects" class="hero-card-tile card-gradient-purple">
+          <div class="card-icon-pill">🚀</div>
+          <div class="card-text-block">
+            <h3>Projects</h3>
+            <p>Full-Stack &amp; AI Mini/Major Projects with Viva</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+        <!-- 6. Placement -->
+        <a href="#placement" class="hero-card-tile card-gradient-amber">
+          <div class="card-icon-pill">🎯</div>
+          <div class="card-text-block">
+            <h3>Placement</h3>
+            <p>Aptitude • Tech HR • System Design Guides</p>
+          </div>
+          <span class="card-arrow-indicator">→</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- EXPLORE CATEGORIES SECTION (OFFICIAL ORIGINAL BRAND LOGOS) -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <h2>💠 Explore Categories</h2>
+            <p>Find notes for your favorite programming language and subjects</p>
+          </div>
+          <a href="#notes-store" class="view-all-link" onclick="filterByCategory('all')">View All →</a>
+        </div>
+
+        <!-- Row 1: 6 Languages with Authentic Brand SVGs -->
+        <div class="categories-grid-custom">
+          
+          <!-- 1. Python (Official Blue & Yellow Snake SVG) -->
+          <div class="cat-pill-card bg-cat-python active" onclick="filterByCategory('Python', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <path fill="#3776AB" d="M63.5 12C36.2 12 37.8 23.8 37.8 23.8l.1 12.3h25.9v3.7H27.5S12 38 12 65.4c0 27.3 13.5 26.4 13.5 26.4h8.1v-11.4s-.4-13.6 13.4-13.6h25.8s12.9.2 12.9-12.6V24.5S87.4 12 63.5 12zm-14 7.6a4.1 4.1 0 1 1 0 8.2 4.1 4.1 0 0 1 0-8.2z"/>
+                <path fill="#FFD43B" d="M64.5 116c27.3 0 25.7-11.8 25.7-11.8l-.1-12.3H64.2v-3.7h36.3s15.5 1.8 15.5-25.6c0-27.3-13.5-26.4-13.5-26.4h-8.1v11.4s.4 13.6-13.4 13.6H45.2s-12.9-.2-12.9 12.6v29.7s-1.7 12.5 32.2 12.5zm14-7.6a4.1 4.1 0 1 1 0-8.2 4.1 4.1 0 0 1 0 8.2z"/>
+              </svg>
+            </div>
+            <span>Python</span>
+          </div>
+
+          <!-- 2. C (Official Blue Hexagon SVG) -->
+          <div class="cat-pill-card bg-cat-c" onclick="filterByCategory('C & C++', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <polygon points="64,8 116,36 116,92 64,120 12,92 12,36" fill="#00599C"/>
+                <path d="M84 46c-5-6-12-9-20-9-16 0-26 12-26 27s10 27 26 27c8 0 15-3 20-9l11 11c-8 9-20 14-31 14-25 0-42-18-42-43s17-43 42-43c11 0 23 5 31 14l-11 11z" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <span>C</span>
+          </div>
+
+          <!-- 3. C++ (Official Violet Hexagon SVG with ++) -->
+          <div class="cat-pill-card bg-cat-cpp" onclick="filterByCategory('C & C++', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <polygon points="64,8 116,36 116,92 64,120 12,92 12,36" fill="#659AD2"/>
+                <path d="M68 48c-4-5-10-7-16-7-13 0-21 9-21 23s8 23 21 23c6 0 12-2 16-7l9 9c-7 7-16 11-25 11-20 0-34-14-34-36s14-36 34-36c9 0 18 4 25 11l-9 9z" fill="#FFFFFF"/>
+                <path d="M88 56h5v7h7v5h-7v7h-5v-7h-7v-5h7v-7zm18 0h5v7h7v5h-7v7h-5v-7h-7v-5h7v-7z" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <span>C++</span>
+          </div>
+
+          <!-- 4. Java (Official Red Steaming Cup SVG) -->
+          <div class="cat-pill-card bg-cat-java" onclick="filterByCategory('Java', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <path d="M46 95c26 2 46-2 46-2s-7 5-24 8c-18 3-38 1-38 1s4-4 16-7zm-4-15c32 2 54-4 54-4s-8 6-30 9c-21 3-45 1-45 1s7-3 21-6zm22-38c5 6 4 12-4 18 10-3 18-9 16-17-2-6-7-10-12-16-4-5-8-12-3-20-10 9-4 25 3 35zm17 21c7 7 6 15-3 22 13-4 22-12 19-22-2-7-9-12-15-20-5-6-10-15-4-25-13 11-5 32 3 45zM38 109c37 3 67-2 67-2s-10 6-35 10c-26 4-55 1-55 1s8-5 23-9z" fill="#EA2D2E"/>
+                <path d="M88 73c12-1 18-6 18-12 0-7-7-11-17-11h-3v5h2c7 0 11 2 11 6 0 4-5 7-13 7h-2v5h4z" fill="#5382A1"/>
+              </svg>
+            </div>
+            <span>Java</span>
+          </div>
+
+          <!-- 5. JavaScript (Official Yellow Square JS SVG) -->
+          <div class="cat-pill-card bg-cat-js" onclick="filterByCategory('JavaScript', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <rect width="128" height="128" rx="16" fill="#F7DF1E"/>
+                <path d="M70 102c4 7 10 11 20 11 11 0 19-6 19-15 0-11-8-15-20-21-16-7-26-15-26-32 0-16 12-28 32-28 13 0 22 5 28 15l-13 9c-3-6-8-9-15-9-8 0-13 5-13 12 0 8 5 12 17 17 19 8 30 16 30 35 0 20-15 31-37 31-18 0-29-8-35-20l13-5zm-39 1c2 4 5 7 10 7 6 0 10-4 10-13V46h17v51c0 18-11 26-26 26-12 0-20-6-24-15l13-5z" fill="#000000"/>
+              </svg>
+            </div>
+            <span>JavaScript</span>
+          </div>
+
+          <!-- 6. HTML & CSS (Official HTML5 & CSS3 Shields SVG) -->
+          <div class="cat-pill-card bg-cat-html" onclick="filterByCategory('HTML & CSS', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 140 128" width="50" height="44">
+                <g transform="translate(0, 0)">
+                  <polygon points="12,10 20,105 58,118 96,105 104,10" fill="#E44D26"/>
+                  <polygon points="58,18 58,109 90,99 97,18" fill="#F16529"/>
+                  <path fill="#EBEBEB" d="M34 32h24v14H35l2 19h21v14H37l1 12 20 6v14l-35-10z"/>
+                  <path fill="#FFFFFF" d="M58 32h24l-2 14H58v-14zm0 28h22l-2 19-20 6v14l35-10 3-43H58v14z"/>
+                </g>
+                <g transform="translate(42, 10) scale(0.85)">
+                  <polygon points="12,10 20,105 58,118 96,105 104,10" fill="#1572B6"/>
+                  <polygon points="58,18 58,109 90,99 97,18" fill="#33A9DC"/>
+                  <path fill="#EBEBEB" d="M34 32h24v14H35l2 19h21v14H37l1 12 20 6v14l-35-10z"/>
+                  <path fill="#FFFFFF" d="M58 32h24l-2 14H58v-14zm0 28h22l-2 19-20 6v14l35-10 3-43H58v14z"/>
+                </g>
+              </svg>
+            </div>
+            <span>HTML & CSS</span>
+          </div>
+
+        </div>
+
+        <!-- Row 2: 5 Subjects with Authentic Academic SVGs -->
+        <div class="categories-grid-custom row-2">
+          
+          <!-- 7. Data Structures & Algorithms (Binary Search Tree SVG) -->
+          <div class="cat-pill-card bg-cat-dsa" onclick="filterByCategory('DSA', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <line x1="64" y1="26" x2="36" y2="64" stroke="#059669" stroke-width="5"/>
+                <line x1="64" y1="26" x2="92" y2="64" stroke="#059669" stroke-width="5"/>
+                <line x1="36" y1="64" x2="22" y2="100" stroke="#059669" stroke-width="5"/>
+                <line x1="36" y1="64" x2="50" y2="100" stroke="#059669" stroke-width="5"/>
+                <line x1="92" y1="64" x2="78" y2="100" stroke="#059669" stroke-width="5"/>
+                <line x1="92" y1="64" x2="106" y2="100" stroke="#059669" stroke-width="5"/>
+                <circle cx="64" cy="26" r="14" fill="#10B981" stroke="#047857" stroke-width="2.5"/>
+                <circle cx="36" cy="64" r="12" fill="#34D399" stroke="#047857" stroke-width="2.5"/>
+                <circle cx="92" cy="64" r="12" fill="#34D399" stroke="#047857" stroke-width="2.5"/>
+                <circle cx="22" cy="100" r="10" fill="#6EE7B7" stroke="#047857" stroke-width="2"/>
+                <circle cx="50" cy="100" r="10" fill="#6EE7B7" stroke="#047857" stroke-width="2"/>
+                <circle cx="78" cy="100" r="10" fill="#6EE7B7" stroke="#047857" stroke-width="2"/>
+                <circle cx="106" cy="100" r="10" fill="#6EE7B7" stroke="#047857" stroke-width="2"/>
+              </svg>
+            </div>
+            <span>Data Structures<br>& Algorithms</span>
+          </div>
+
+          <!-- 8. DBMS (Relational Database Stack Cylinders SVG) -->
+          <div class="cat-pill-card bg-cat-dbms" onclick="filterByCategory('DBMS', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <path d="M24 74v18c0 11 18 20 40 20s40-9 40-20V74c0 11-18 20-40 20s-40-9-40-20z" fill="#7C3AED"/>
+                <path d="M24 46v18c0 11 18 20 40 20s40-9 40-20V46c0 11-18 20-40 20s-40-9-40-20z" fill="#8B5CF6"/>
+                <path d="M24 24v18c0 11 18 20 40 20s40-9 40-20V24c0 11-18 20-40 20s-40-9-40-20z" fill="#A78BFA"/>
+                <ellipse cx="64" cy="24" rx="40" ry="16" fill="#DDD6FE" stroke="#7C3AED" stroke-width="3"/>
+                <circle cx="86" cy="38" r="4" fill="#10B981"/>
+                <circle cx="86" cy="62" r="4" fill="#10B981"/>
+                <circle cx="86" cy="90" r="4" fill="#10B981"/>
+              </svg>
+            </div>
+            <span>DBMS</span>
+          </div>
+
+          <!-- 9. Operating Systems (Precision Mechanical Gears SVG) -->
+          <div class="cat-pill-card bg-cat-os" onclick="filterByCategory('OS', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <g fill="#0284C7">
+                  <path d="M76 46a24 24 0 0 0-24 24 24 24 0 0 0 24 24 24 24 0 0 0 24-24 24 24 0 0 0-24-24zm0 34a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"/>
+                  <path d="M96 66h8v8h-8zM48 66h8v8h-8zM72 42h8v8h-8zM72 90h8v8h-8zM88 50l6 6-6 6-6-6zM58 80l6 6-6 6-6-6zM88 88l-6 6-6-6 6-6zM58 58l-6 6-6-6 6-6z"/>
+                </g>
+                <g fill="#38BDF8">
+                  <circle cx="44" cy="44" r="14"/>
+                  <circle cx="44" cy="44" r="6" fill="#E0F2FE"/>
+                  <path d="M41 24h6v6h-6zM41 58h6v6h-6zM24 41h6v6h-6zM58 41h6v6h-6z"/>
+                </g>
+              </svg>
+            </div>
+            <span>Operating Systems</span>
+          </div>
+
+          <!-- 10. Computer Networks (Interconnected Network Topology SVG) -->
+          <div class="cat-pill-card bg-cat-cn" onclick="filterByCategory('Computer Networks', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <line x1="64" y1="28" x2="32" y2="88" stroke="#DB2777" stroke-width="6"/>
+                <line x1="64" y1="28" x2="96" y2="88" stroke="#DB2777" stroke-width="6"/>
+                <line x1="32" y1="88" x2="96" y2="88" stroke="#DB2777" stroke-width="6"/>
+                <circle cx="64" cy="28" r="16" fill="#F43F5E" stroke="#BE123C" stroke-width="3"/>
+                <circle cx="64" cy="28" r="6" fill="#FFF"/>
+                <circle cx="32" cy="88" r="16" fill="#F43F5E" stroke="#BE123C" stroke-width="3"/>
+                <circle cx="32" cy="88" r="6" fill="#FFF"/>
+                <circle cx="96" cy="88" r="16" fill="#F43F5E" stroke="#BE123C" stroke-width="3"/>
+                <circle cx="96" cy="88" r="6" fill="#FFF"/>
+              </svg>
+            </div>
+            <span>Computer Networks</span>
+          </div>
+
+          <!-- 11. AI & Machine Learning (Neural Network Brain Circuit SVG) -->
+          <div class="cat-pill-card bg-cat-aiml" onclick="filterByCategory('AI & ML', this)">
+            <div class="cat-logo-icon">
+              <svg viewBox="0 0 128 128" width="44" height="44">
+                <path d="M46 28c-14 0-26 10-26 24 0 4 1 8 3 11-6 4-10 12-10 20 0 14 10 25 24 25 2 0 4 0 6-1 4 7 12 11 20 11V28c-5 0-11 0-17 0z" fill="#9333EA"/>
+                <path d="M82 28c14 0 26 10 26 24 0 4-1 8-3 11 6 4 10 12 10 20 0 14-10 25-24 25-2 0-4 0-6-1-4 7-12 11-20 11V28c5 0 11 0 17 0z" fill="#A855F7"/>
+                <circle cx="44" cy="46" r="4" fill="#FFFFFF"/>
+                <circle cx="84" cy="46" r="4" fill="#FFFFFF"/>
+                <circle cx="34" cy="72" r="4" fill="#FFFFFF"/>
+                <circle cx="94" cy="72" r="4" fill="#FFFFFF"/>
+                <circle cx="52" cy="92" r="4" fill="#FFFFFF"/>
+                <circle cx="76" cy="92" r="4" fill="#FFFFFF"/>
+                <line x1="44" y1="46" x2="34" y2="72" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="84" y1="46" x2="94" y2="72" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="34" y1="72" x2="52" y2="92" stroke="#FFFFFF" stroke-width="2"/>
+                <line x1="94" y1="72" x2="76" y2="92" stroke="#FFFFFF" stroke-width="2"/>
+              </svg>
+            </div>
+            <span>AI & Machine Learning</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POPULAR PROGRAMMING NOTES (MATCHING 4-COLUMN CARDS) -->
+    <section class="notes-store-section" id="notes-store">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <h2>🔥 Popular Programming Notes</h2>
+            <p>Most loved notes by engineering students with semester-wise and difficulty filters</p>
+          </div>
+          <a href="#notes-store" class="view-all-link" onclick="filterByCategory('all')">View All Notes →</a>
+        </div>
+
+        <!-- Notes Filter Panel (Semester, Difficulty, Price, Sort) -->
+        <div class="notes-filter-panel">
+          <div class="notes-filter-group">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Semester:</span>
+            <div class="filter-pills-row" id="notesSemesterPills">
+              <button class="filter-pill-btn active" onclick="setNotesSemesterFilter('all', this)">All Semesters</button>
+              <button class="filter-pill-btn" onclick="setNotesSemesterFilter('1st Year', this)">1st Year</button>
+              <button class="filter-pill-btn" onclick="setNotesSemesterFilter('2nd Year', this)">2nd Year</button>
+              <button class="filter-pill-btn" onclick="setNotesSemesterFilter('3rd Year', this)">3rd Year</button>
+              <button class="filter-pill-btn" onclick="setNotesSemesterFilter('4th Year', this)">4th Year</button>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.65rem; flex-wrap:wrap; align-items:center;">
+            <select class="filter-select" id="notesDifficultySelect" onchange="setNotesDifficultyFilter(this.value)">
+              <option value="all">All Difficulties</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+
+            <select class="filter-select" id="notesPriceSelect" onchange="setNotesPriceFilter(this.value)">
+              <option value="all">All Prices</option>
+              <option value="under200">Under ₹200</option>
+              <option value="under250">Under ₹250</option>
+              <option value="under300">Under ₹300</option>
+            </select>
+
+            <select class="filter-select" id="notesSortSelect" onchange="setNotesSortBy(this.value)">
+              <option value="popular">Sort: Most Popular</option>
+              <option value="newest">Sort: Newest</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 4-Column Product Cards Grid -->
+        <div class="product-cards-grid-4" id="productsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <!-- Empty Results Message -->
+        <div class="no-products-msg" id="noProductsMsg" style="display:none; text-align:center; padding:3rem;">
+          <h3>No study notes found</h3>
+          <p>Try resetting filters or searching for "Python", "DSA", "C++", "Java", "DBMS".</p>
+          <button class="btn btn-secondary mt-2" onclick="filterByCategory('all')">Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 1. CODING PRACTICE ZONE -->
+    <!-- ================================================================= -->
+    <section class="coding-zone-section" id="coding-zone" style="padding:4.5rem 0; border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">⚡ CODING HUB</span>
+            <h2>Coding Practice Zone</h2>
+            <p>Solve daily challenges, master LeetCode patterns &amp; boost your technical interview streak</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="renderCodingProblems()">🔄 Refresh Problems</button>
+          </div>
+        </div>
+
+        <!-- Student Progress Hero Ribbon -->
+        <div class="coding-progress-hero">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+            <div>
+              <span style="font-size:0.75rem; font-weight:800; color:#38BDF8; letter-spacing:0.06em; text-transform:uppercase;">STUDENT PROGRESS</span>
+              <h3 style="font-size:1.35rem; color:#FFFFFF; margin:0.25rem 0 0.2rem;">Your Engineering Journey — <span id="codingProgressPercent">50%</span> Complete</h3>
+              <p style="font-size:0.85rem; color:#94A3B8; margin:0;">Consistent problem solving is the #1 predictor of placement success in top product companies.</p>
+            </div>
+            <div style="text-align:right;">
+              <span class="live-dot-pulse"></span>
+              <span style="font-size:0.75rem; color:#10B981; font-weight:700;">Live Algorithm Sandbox Active</span>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="codingProgressBarFill" style="width:50%;"></div>
+          </div>
+
+          <!-- Stats Deck -->
+          <div class="coding-stats-deck">
+            <div class="coding-stat-box">
+              <span class="stat-num" id="codingStatSolved">4 / 8</span>
+              <span class="stat-lbl">Problems Solved</span>
+            </div>
+            <div class="coding-stat-box">
+              <span class="stat-num" style="color:#F59E0B;">7 Days 🔥</span>
+              <span class="stat-lbl">Current Streak</span>
+            </div>
+            <div class="coding-stat-box">
+              <span class="stat-num" style="color:#10B981;">94%</span>
+              <span class="stat-lbl">Test Accuracy</span>
+            </div>
+            <div class="coding-stat-box">
+              <span class="stat-num" style="color:#A855F7;">4 / 6</span>
+              <span class="stat-lbl">Topics Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Challenge Banner -->
+        <div style="background:linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(6, 182, 212, 0.08)); border:1px solid rgba(79, 70, 229, 0.2); border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div style="display:flex; align-items:center; gap:0.85rem;">
+            <div style="font-size:2rem;">🌟</div>
+            <div>
+              <span style="background:#4F46E5; color:#FFF; font-size:0.68rem; font-weight:800; padding:0.15rem 0.5rem; border-radius:99px;">DAILY CHALLENGE</span>
+              <h4 style="font-size:1.05rem; margin:0.25rem 0 0.15rem; color:var(--text-main);">Two Sum • Arrays &amp; Hash Table</h4>
+              <span style="font-size:0.78rem; color:var(--text-muted);">Earn +50 XP and protect your 7-day engineering streak.</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="openCodeProblemModal(301)" style="padding:0.6rem 1.25rem; font-weight:700;">
+            Solve Daily Challenge →
+          </button>
+        </div>
+
+        <!-- Filter Row -->
+        <div class="notes-filter-panel" style="margin-bottom:1.5rem;">
+          <div class="notes-filter-group">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Language:</span>
+            <div class="filter-pills-row" id="codingLangPills">
+              <button class="filter-pill-btn active" onclick="setCodingLanguageFilter('all', this)">All</button>
+              <button class="filter-pill-btn" onclick="setCodingLanguageFilter('Python', this)">Python</button>
+              <button class="filter-pill-btn" onclick="setCodingLanguageFilter('C++', this)">C++</button>
+              <button class="filter-pill-btn" onclick="setCodingLanguageFilter('Java', this)">Java</button>
+              <button class="filter-pill-btn" onclick="setCodingLanguageFilter('SQL', this)">SQL</button>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:0.65rem; align-items:center;">
+            <select class="filter-select" id="codingDiffSelect" onchange="setCodingDifficultyFilter(this.value)">
+              <option value="all">All Difficulties</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Coding Problems List -->
+        <div id="codingProblemsList" style="display:flex; flex-direction:column; gap:0.75rem;">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 2. PROJECT HUB & MARKETPLACE -->
+    <!-- ================================================================= -->
+    <section class="projects-section" id="projects" style="padding:4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">🚀 CAPSTONE &amp; PROJECTS</span>
+            <h2>Project Hub &amp; Architecture Showcase</h2>
+            <p>Mini Projects, Major Projects, Final Year, Web, AI/ML, and Hackathon-ready projects with Documentation &amp; Viva Q&amp;A</p>
+          </div>
+          <a href="https://github.com" target="_blank" class="view-all-link">GitHub Org →</a>
+        </div>
+
+        <!-- Project Categories Filter -->
+        <div class="notes-filter-panel" style="margin-bottom:2rem;">
+          <div class="notes-filter-group">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Category:</span>
+            <div class="filter-pills-row" id="projectsCategoryPills">
+              <button class="filter-pill-btn active" onclick="setProjectsCategoryFilter('all', this)">All Projects</button>
+              <button class="filter-pill-btn" onclick="setProjectsCategoryFilter('Mini Projects', this)">Mini Projects</button>
+              <button class="filter-pill-btn" onclick="setProjectsCategoryFilter('Major Projects', this)">Major Projects</button>
+              <button class="filter-pill-btn" onclick="setProjectsCategoryFilter('Final Year Projects', this)">Final Year Projects</button>
+              <button class="filter-pill-btn" onclick="setProjectsCategoryFilter('Hackathon Projects', this)">Hackathons</button>
+            </div>
+          </div>
+
+          <div>
+            <select class="filter-select" id="projectsDifficultySelect" onchange="setProjectsDifficultyFilter(this.value)">
+              <option value="all">All Difficulties</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 3-Column Projects Grid -->
+        <div class="projects-grid-3" id="projectsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. PLACEMENT PREPARATION HUB -->
+    <!-- ================================================================= -->
+    <section class="placement-section" id="placement" style="padding:4.5rem 0; border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">🎯 CAREER ACCELERATOR</span>
+            <h2>Placement Preparation Hub</h2>
+            <p>From Aptitude and Technical Interviews to STAR HR frameworks and MNC company cheat sheets</p>
+          </div>
+          <span style="background:#ECFDF5; color:#047857; font-weight:700; font-size:0.78rem; padding:0.35rem 0.75rem; border-radius:99px; border:1px solid #A7F3D0;">
+            100% Free Placement Guides
+          </span>
+        </div>
+
+        <!-- Visual Placement Roadmap Track -->
+        <div class="placement-roadmap-track" style="margin-bottom:3rem;">
+          <div class="placement-step-circle active" title="Learn fundamentals">
+            <div class="step-num-bubble">1</div>
+            <div class="step-title-txt">Learn Core</div>
+            <div class="step-sub-txt">DSA &amp; CS</div>
+          </div>
+          <div class="placement-step-arrow">➔</div>
+          <div class="placement-step-circle active" title="Solve LeetCode &amp; Aptitude">
+            <div class="step-num-bubble">2</div>
+            <div class="step-title-txt">Practice</div>
+            <div class="step-sub-txt">Aptitude &amp; DSA</div>
+          </div>
+          <div class="placement-step-arrow">➔</div>
+          <div class="placement-step-circle active" title="Demonstrate proof of work">
+            <div class="step-num-bubble">3</div>
+            <div class="step-title-txt">Build Projects</div>
+            <div class="step-sub-txt">Full-Stack / AI</div>
+          </div>
+          <div class="placement-step-arrow">➔</div>
+          <div class="placement-step-circle active" title="Single page ATS format">
+            <div class="step-num-bubble">4</div>
+            <div class="step-title-txt">Resume ATS</div>
+            <div class="step-sub-txt">LaTeX Format</div>
+          </div>
+          <div class="placement-step-arrow">➔</div>
+          <div class="placement-step-circle active" title="Technical &amp; HR Rounds">
+            <div class="step-num-bubble">5</div>
+            <div class="step-title-txt">Interview</div>
+            <div class="step-sub-txt">Mock Practice</div>
+          </div>
+          <div class="placement-step-arrow">➔</div>
+          <div class="placement-step-circle active" style="border-color:#10B981; background:linear-gradient(135deg, #ECFDF5, #D1FAE5);" title="Dream placement secured!">
+            <div class="step-num-bubble" style="background:#10B981;">🏆</div>
+            <div class="step-title-txt" style="color:#065F46;">Placement</div>
+            <div class="step-sub-txt" style="color:#047857;">Dream Offer!</div>
+          </div>
+        </div>
+
+        <!-- 6 Placement Topic Cards Grid -->
+        <div class="placement-cards-grid-3" id="placementTopicsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. AI / ML ROADMAP SECTION -->
+    <!-- ================================================================= -->
+    <section class="aiml-roadmap-section" id="aiml-roadmap" style="padding:4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">🤖 ARTIFICIAL INTELLIGENCE</span>
+            <h2>AI &amp; Machine Learning Roadmap 2026</h2>
+            <p>Interactive 10-step curriculum from Python math to LLMs, RAG, and production AI/ML engineer roles</p>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Click any step to inspect syllabus &amp; projects</span>
+        </div>
+
+        <!-- 10 Step Interactive Pipeline Grid -->
+        <div class="aiml-roadmap-grid" id="aimlRoadmapGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. 4-YEAR B.TECH ROADMAP SECTION -->
+    <!-- ================================================================= -->
+    <section class="btech-roadmap-section" id="btech-roadmap" style="padding:4.5rem 0; border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">🗺️ 4-YEAR BLUEPRINT</span>
+            <h2>Engineering Roadmap (Year 1 to Year 4)</h2>
+            <p>Clear semester milestones to stay ahead of 95% of engineering students from day one</p>
+          </div>
+          <span style="font-size:0.82rem; color:#10B981; font-weight:700;">Interactive Checklist • Auto-Saved</span>
+        </div>
+
+        <!-- 4-Year Cards Grid -->
+        <div class="btech-years-grid" id="btechRoadmapContainer">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. EXAM ZONE -->
+    <!-- ================================================================= -->
+    <section class="exam-zone-section" id="exam-zone" style="padding:4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">📝 UNIVERSITY EXAMS</span>
+            <h2>University Exam Zone &amp; PYQs</h2>
+            <p>Repeated 10-mark questions, Banker's algorithm numerical sheets, and viva voce cheat sheets</p>
+          </div>
+          <span style="background:#EEF2FF; color:#4F46E5; font-weight:700; font-size:0.78rem; padding:0.35rem 0.75rem; border-radius:99px;">
+            Semester Exam Ready
+          </span>
+        </div>
+
+        <div class="exam-zone-grid-3" id="examZoneGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 7. DAILY DOSE OF ENGINEERING -->
+    <!-- ================================================================= -->
+    <section class="daily-dose-section" id="daily-dose" style="padding:4.5rem 0; border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">☕ DAILY ENGINEERING FEED</span>
+            <h2>Daily Dose of Engineering</h2>
+            <p>Bite-sized coding tips, interview questions, architecture facts, and IDE productivity shortcuts</p>
+          </div>
+          <span style="font-size:0.8rem; color:var(--text-muted);">Updated Every Morning at 8:00 AM</span>
+        </div>
+
+        <div class="daily-dose-feed-grid" id="dailyDoseGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 8. COMMUNITY HUB -->
+    <!-- ================================================================= -->
+    <section class="community-section" id="community" style="padding:4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <span class="section-badge-pill" style="margin-bottom:0.5rem; display:inline-block;">🤝 STUDENT NETWORK</span>
+            <h2>Community: Learn Together. Build Together.</h2>
+            <p>Ask doubts, share projects, debate optimal algorithms, and celebrate campus placement success</p>
+          </div>
+          <button class="btn btn-primary" onclick="openAskDoubtModal()">
+            💬 Ask a Doubt / Discuss
+          </button>
+        </div>
+
+        <div class="community-grid-2" id="communityGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE ENGINEER'S DIARY? SECTION (MATCHING SCREENSHOT) -->
+    <section class="why-choose-section" id="about">
+      <div class="container">
+        <div class="why-choose-box">
+          <div class="why-header">
+            <h2>Why Choose Engineer's Diary?</h2>
+            <p>Because your dreams deserve the best resources!</p>
+          </div>
+
+          <div class="why-inner-grid">
+            <!-- 4 Features -->
+            <div class="why-features-grid">
+              
+              <!-- 1. High Quality Notes -->
+              <div class="why-feature-item">
+                <div class="why-circle-icon icon-orange">⚡</div>
+                <div class="why-feat-text">
+                  <h4>High Quality Notes</h4>
+                  <p>Well researched & easy to understand</p>
+                </div>
+              </div>
+
+              <!-- 2. Secure Payments -->
+              <div class="why-feature-item">
+                <div class="why-circle-icon icon-green">🛡️</div>
+                <div class="why-feat-text">
+                  <h4>Secure Payments</h4>
+                  <p>100% safe & trusted</p>
+                </div>
+              </div>
+
+              <!-- 3. Instant Download -->
+              <div class="why-feature-item">
+                <div class="why-circle-icon icon-blue">☁️</div>
+                <div class="why-feat-text">
+                  <h4>Instant Download</h4>
+                  <p>Get your notes immediately</p>
+                </div>
+              </div>
+
+              <!-- 4. 24/7 Support -->
+              <div class="why-feature-item">
+                <div class="why-circle-icon icon-purple">🎧</div>
+                <div class="why-feat-text">
+                  <h4>24/7 Support</h4>
+                  <p>We're always here to help</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Doodle Column (Book Stack + Small Steps Big Dreams) -->
+            <div class="why-doodle-col">
+              <span class="why-doodle-phrase">Small Steps Big Dreams ♡</span>
+              <img src="assets/images/book_stack.jpg" alt="Stack of engineering study books with cute curved arrow" class="why-stack-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT OUR STUDENTS SAY (MATCHING SCREENSHOT) -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <h2>⭐ What Our Students Say</h2>
+            <p>Real stories from real students</p>
+          </div>
+          <a href="#testimonials" class="view-all-link">View All Testimonials →</a>
+        </div>
+
+        <div class="testimonials-grid-4">
+          <!-- Testimonial 1 -->
+          <div class="ref-testimonial-card">
+            <div class="student-meta-top">
+              <div class="student-avatar-circle">👨‍🎓</div>
+              <div class="student-info-col">
+                <h4>Rohit Kumar</h4>
+                <span>IIT Roorkee | CSE</span>
+              </div>
+            </div>
+            <div class="t-stars-gold">★★★★★</div>
+            <p class="student-review-quote">
+              "Engineer's Diary notes are super helpful! Very well explained and easy to follow. Got placed with the help of their resources."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="ref-testimonial-card">
+            <div class="student-meta-top">
+              <div class="student-avatar-circle">👩‍🎓</div>
+              <div class="student-info-col">
+                <h4>Priya Singh</h4>
+                <span>NIT Jaipur | CSE</span>
+              </div>
+            </div>
+            <div class="t-stars-gold">★★★★★</div>
+            <p class="student-review-quote">
+              "Best platform for engineering notes. The notes saved a lot of my time and helped me in exams and placements."
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="ref-testimonial-card">
+            <div class="student-meta-top">
+              <div class="student-avatar-circle">👨‍💻</div>
+              <div class="student-info-col">
+                <h4>Aman Verma</h4>
+                <span>IIIT Bhopal | CSE</span>
+              </div>
+            </div>
+            <div class="t-stars-gold">★★★★★</div>
+            <p class="student-review-quote">
+              "Quality notes, great pricing and instant download. Highly recommend to all B.Tech students."
+            </p>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="ref-testimonial-card">
+            <div class="student-meta-top">
+              <div class="student-avatar-circle">👩‍💻</div>
+              <div class="student-info-col">
+                <h4>Neha Sharma</h4>
+                <span>AKTU | CSE</span>
+              </div>
+            </div>
+            <div class="t-stars-gold">★★★★★</div>
+            <p class="student-review-quote">
+              "I love the free resources section. The cheat sheets and roadmaps are super useful!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FREE RESOURCES DOWNLOAD SECTION -->
+    <section class="categories-section" id="free-resources" style="background:#F8FAFC; border-top:1px solid #E2E8F0;">
+      <div class="container">
+        <div class="section-top-header">
+          <div class="section-title-wrap">
+            <h2>🎁 Free Engineering Study Resources</h2>
+            <p>100% Free Cheat sheets, roadmaps, and interview question sheets</p>
+          </div>
+        </div>
+        <div class="product-cards-grid-4" id="freeResourcesGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- DARK FOOTER MATCHING SCREENSHOT -->
+  <footer class="site-footer-dark" id="contact">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col">
+          <div class="footer-logo-row" style="display:flex; align-items:center; gap:0.75rem;">
+            <div class="brand-logo-frame" style="width:40px; height:40px; border-color:#4F46E5;">
+              <img src="assets/images/logo.jpg" alt="Engineer's Diary Logo" class="brand-logo-img">
+            </div>
+            <div>
+              <h3 style="margin:0; font-size:1.15rem; color:#FFFFFF;">Engineer's Diary</h3>
+              <span style="font-size:0.7rem; color:#94A3B8; letter-spacing:0.5px;">LEARN • CODE • GROW</span>
+            </div>
+          </div>
+          <p class="footer-brand-bio">
+            Helping engineering students learn programming, prepare for exams and build technical skills.
+          </p>
+          <div class="footer-social-row">
+            <a href="https://instagram.com" target="_blank" class="social-circle-link" title="Instagram">📷</a>
+            <a href="https://youtube.com" target="_blank" class="social-circle-link" title="YouTube">▶️</a>
+            <a href="https://t.me" target="_blank" class="social-circle-link" title="Telegram">✈️</a>
+            <span class="footer-ig-text">Follow @EngineersDiary</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#notes-store">Notes</a></li>
+            <li><a href="#categories">Courses</a></li>
+            <li><a href="#free-resources">Free Resources</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <ul class="footer-menu">
+            <li><a href="#" onclick="openAccountModal(); return false;">My Account</a></li>
+            <li><a href="#" onclick="openAccountModal(); return false;">Order History</a></li>
+            <li><a href="#" onclick="openCartDrawer(); return false;">Wishlist</a></li>
+            <li><a href="#" onclick="openAccountModal(); return false;">Help & Support</a></li>
+            <li><a href="#" onclick="openAdminPanel(); return false;">Admin Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Policies -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Policies</h4>
+          <ul class="footer-menu">
+            <li><a href="#" onclick="openLegalModal('privacy'); return false;">Privacy Policy</a></li>
+            <li><a href="#" onclick="openLegalModal('terms'); return false;">Terms & Conditions</a></li>
+            <li><a href="#" onclick="openLegalModal('refund'); return false;">Refund Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Stay Updated -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Stay Updated</h4>
+          <p class="stay-updated-desc">Get the latest notes, offers and resources.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed for weekly engineering notes!', 'success');">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-newsletter-arrow" aria-label="Subscribe">→</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <span>© 2026 Engineer's Diary. All rights reserved.</span>
+        <span class="footer-script-quote">Code Today Build Tomorrow ♡</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS & DRAWERS ================= -->
+
+  <!-- 1. CART FLYOUT DRAWER -->
+  <div class="drawer-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <h3 style="font-size:1.15rem; font-weight:700;">Your Study Cart</h3>
+        <span id="cartDrawerCount" style="font-size:0.85rem; color:#64748B;">(0 items)</span>
+      </div>
+      <button class="close-drawer-btn" onclick="closeCartDrawer()">×</button>
+    </div>
+
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Items rendered dynamically -->
+    </div>
+
+    <div class="drawer-footer">
+      <div style="display:flex; gap:0.5rem;">
+        <input type="text" id="couponInput" placeholder="Coupon (e.g. ENGINEER50)" style="flex-grow:1; padding:0.45rem 0.75rem; border:1px solid #CBD5E1; border-radius:6px; font-size:0.85rem; text-transform:uppercase;">
+        <button class="btn btn-secondary btn-sm" onclick="applyCouponCode()">Apply</button>
+      </div>
+      <div id="appliedCouponTag" style="display:none; justify-content:space-between; background:#ECFDF5; border:1px solid #10B981; padding:0.3rem 0.6rem; border-radius:4px; font-size:0.78rem; color:#047857;">
+        <span id="appliedCouponText">ENGINEER50 (-50%)</span>
+        <button style="background:none; border:none; color:#047857; cursor:pointer;" onclick="removeCoupon()">×</button>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; font-size:0.9rem; color:#475569;">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div id="cartDiscountRow" style="display:none; justify-content:space-between; font-size:0.9rem; color:#10B981;">
+        <span>Discount</span>
+        <span id="cartDiscountAmount">-₹0</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:1.1rem; font-weight:700; color:#0F172A; border-top:1px solid #E2E8F0; padding-top:0.5rem;">
+        <span>Total Payable</span>
+        <span id="cartFinalTotal" style="color:#2563EB;">₹0</span>
+      </div>
+
+      <button class="btn btn-primary w-100" id="cartCheckoutBtn" onclick="startCheckout()">
+        Proceed to Secure Checkout →
+      </button>
+    </div>
+  </aside>
+
+  <!-- 2. PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="productDetailModal" onclick="closeProductDetailOnOverlay(event)">
+    <div class="modal-dialog modal-lg">
+      <button class="modal-close-btn" onclick="closeProductDetailModal()">×</button>
+      <div id="productDetailContent" style="padding:2.5rem;">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. SAMPLE PDF PREVIEW MODAL -->
+  <div class="modal-overlay" id="pdfPreviewModal" onclick="closePreviewOnOverlay(event)">
+    <div class="modal-dialog modal-xl" style="height:85vh; display:flex; flex-direction:column;">
+      <div style="padding:1rem 1.5rem; border-bottom:1px solid #E2E8F0; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <span style="background:#EEF2FF; color:#4F46E5; font-size:0.7rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:99px;">SAMPLE PREVIEW</span>
+          <h3 id="previewModalTitle" style="font-size:1.1rem; margin-top:0.25rem;">Study Notes Preview</h3>
+        </div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <button class="btn btn-outline btn-sm" onclick="prevPreviewPage()">‹ Prev</button>
+            <span style="font-size:0.85rem; color:#64748B;">Page <span id="currentPreviewPage">1</span> of 4</span>
+            <button class="btn btn-outline btn-sm" onclick="nextPreviewPage()">Next ›</button>
+          </div>
+          <button class="modal-close-btn" onclick="closePreviewModal()">×</button>
+        </div>
+      </div>
+
+      <div style="flex-grow:1; background:#F8FAFC; overflow-y:auto; padding:2rem; display:flex; justify-content:center;">
+        <div id="previewCanvas" style="width:100%; max-width:750px; background:#FFFFFF; border:1px solid #E2E8F0; border-radius:12px; padding:2.5rem; box-shadow:0 10px 30px rgba(0,0,0,0.05);">
+          <!-- Content dynamically rendered -->
+        </div>
+      </div>
+
+      <div style="padding:1rem 1.5rem; border-top:1px solid #E2E8F0; background:#FFFFFF; display:flex; justify-content:space-between; align-items:center;">
+        <span>📖 Like this preview? Unlock all <strong id="previewPageCount">180</strong> pages of in-depth handwritten notes!</span>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span id="previewFooterPrice" style="font-size:1.2rem; font-weight:800; color:#EF4444;">₹239</span>
+          <button class="btn btn-primary" onclick="buyFromPreview()">Buy Full PDF Notes Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MULTI-STEP CHECKOUT MODAL WITH ADMIN PAYMENT QR -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-dialog modal-md">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()">×</button>
+      
+      <!-- Step 1: Customer Details -->
+      <div id="checkoutStep1">
+        <h3 style="font-size:1.3rem; margin-bottom:0.35rem;">Student Delivery Coordinates</h3>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Your PDF notes will be delivered instantly to these coordinates.</p>
+        
+        <form onsubmit="proceedToPayment(event)">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:#334155; display:block; margin-bottom:0.25rem;">Full Name *</label>
+              <input type="text" id="studentName" placeholder="e.g. Rahul Sharma" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:#334155; display:block; margin-bottom:0.25rem;">College / University *</label>
+              <input type="text" id="studentCollege" placeholder="e.g. NIT / AKTU / VIT" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px;">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:#334155; display:block; margin-bottom:0.25rem;">Email (For PDF Delivery) *</label>
+              <input type="email" id="studentEmail" placeholder="student@gmail.com" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:600; color:#334155; display:block; margin-bottom:0.25rem;">WhatsApp Number *</label>
+              <input type="tel" id="studentPhone" placeholder="+91 98765 43210" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px;">
+            </div>
+          </div>
+
+          <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:1rem; border-radius:8px; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+            <span>Payable Amount:</span>
+            <strong id="checkoutPayableTotal" style="font-size:1.25rem; color:#2563EB;">₹239</strong>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100" style="padding:0.75rem;">
+            Continue to Payment →
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Payment with Admin's Custom QR Code -->
+      <div id="checkoutStep2" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.25rem;">
+          <div>
+            <h3 style="font-size:1.25rem; color:#0F172A;">Pay via UPI / QR Code</h3>
+            <p style="font-size:0.82rem; color:#64748B;">Scan and pay using any UPI app (GPay, PhonePe, Paytm)</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-size:0.75rem; color:#64748B;">Amount:</span>
+            <strong id="paymentAmountDisplay" style="display:block; font-size:1.3rem; color:#2563EB;">₹239</strong>
+          </div>
+        </div>
+
+        <!-- Custom Admin Payment QR Box -->
+        <div class="customer-qr-box">
+          <div>
+            <img id="checkoutActiveQrImg" src="assets/images/default_qr.jpg" alt="Admin UPI Payment QR Code" class="customer-qr-img">
+            <div style="font-size:0.72rem; color:#EF4444; font-weight:700; margin-top:0.35rem; text-align:center;">
+              Expires in: <span id="qrCountdown">04:59</span>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:0.65rem; text-align:left;">
+            <div>
+              <span style="font-size:0.75rem; color:#64748B;">Merchant / Payee Name:</span>
+              <strong id="checkoutPayeeName" style="display:block; font-size:0.95rem; color:#0F172A;">Engineer's Diary Store</strong>
+            </div>
+
+            <div>
+              <span style="font-size:0.75rem; color:#64748B;">Merchant UPI ID:</span>
+              <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.2rem;">
+                <code id="checkoutUpiIdDisp" style="background:#F1F5F9; padding:0.25rem 0.5rem; border-radius:4px; font-weight:700; color:#1E293B;">engineersdiary@upi</code>
+                <button type="button" class="copy-upi-btn" onclick="copyAdminUpiId()">Copy</button>
+              </div>
+            </div>
+
+            <div style="margin-top:0.5rem;">
+              <label style="font-size:0.78rem; font-weight:600; color:#334155; display:block; margin-bottom:0.25rem;">
+                UPI Ref No. / UTR / Order Note:
+              </label>
+              <input type="text" id="studentUtrInput" placeholder="Enter 12-digit UTR or Transaction ID" style="width:100%; padding:0.45rem 0.65rem; border:1px solid #CBD5E1; border-radius:6px; font-size:0.85rem;">
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:0.75rem; margin-top:1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="backToStep1()">‹ Back</button>
+          <button type="button" class="btn btn-primary flex-grow" id="payNowBtn" onclick="processPayment()">
+            I Have Paid • Verify & Download Notes
+          </button>
+        </div>
+
+        <!-- Processing overlay -->
+        <div id="paymentProcessingOverlay" style="display:none; position:absolute; inset:0; background:rgba(255,255,255,0.96); border-radius:26px; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem; z-index:20;">
+          <div style="width:48px; height:48px; border:4px solid #E2E8F0; border-top-color:#4F46E5; border-radius:50%; animation:spin 0.8s linear infinite; margin-bottom:1rem;"></div>
+          <h4 style="color:#0F172A; font-size:1.2rem;">Verifying Payment with Bank...</h4>
+          <p style="font-size:0.85rem; color:#64748B;">Digital signature verification in progress...</p>
+        </div>
+      </div>
+
+      <!-- Step 3: Success Screen -->
+      <div id="checkoutStep3" style="display:none; text-align:center; padding:1.5rem 0;">
+        <div style="font-size:3.5rem; margin-bottom:0.5rem;">🎉</div>
+        <h2 style="font-size:1.6rem; color:#0F172A;">Payment Successful!</h2>
+        <p style="font-size:0.9rem; color:#64748B; margin-bottom:1.5rem;">Your notes are ready! Thank you for trusting Engineer's Diary.</p>
+
+        <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:1.25rem; text-align:left; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.35rem; font-size:0.85rem;">
+            <span style="color:#64748B;">Order ID:</span>
+            <strong id="orderSuccessId">#ED-98241</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.35rem; font-size:0.85rem;">
+            <span style="color:#64748B;">Amount Paid:</span>
+            <strong id="orderSuccessAmount">₹239</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem;">
+            <span style="color:#64748B;">Delivery Email:</span>
+            <strong id="orderSuccessEmail">student@gmail.com</strong>
+          </div>
+        </div>
+
+        <div style="text-align:left;">
+          <h4 style="font-size:0.95rem; margin-bottom:0.75rem;">Your Digital Note Downloads:</h4>
+          <div id="successDownloadsList" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <div style="display:flex; gap:0.75rem; justify-content:center; margin-top:1.5rem;">
+          <button class="btn btn-primary" onclick="openStudentDashboardFromCheckout()">View in My Purchases →</button>
+          <button class="btn btn-outline" onclick="closeCheckoutModal()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. STUDENT DASHBOARD MODAL -->
+  <div class="modal-overlay" id="accountModal" onclick="closeAccountOnOverlay(event)">
+    <div class="modal-dialog modal-xl" style="height:85vh; padding:0; overflow:hidden;">
+      <button class="modal-close-btn" onclick="closeAccountModal()">×</button>
+      <div style="display:grid; grid-template-columns:300px 1fr; height:100%;">
+        <!-- Sidebar with DP Upload & Attractive Profile -->
+        <div style="background:#F8FAFC; border-right:1px solid #E2E8F0; padding:1.75rem 1.25rem; display:flex; flex-direction:column; overflow-y:auto;">
+          
+          <div class="student-profile-hero">
+            <!-- Student Avatar Wrapper with Hover Camera Overlay -->
+            <div class="student-avatar-wrapper" onclick="triggerDpUpload()" title="Click to upload your Profile Photo / DP">
+              <img id="dashStudentDpImg" src="assets/images/student_avatar.jpg" alt="Student Profile Photo" class="student-avatar-img">
+              <div class="avatar-camera-overlay">
+                <span>📷</span>
+              </div>
+              <div class="avatar-verified-badge" title="Verified Engineering Student">✓</div>
+            </div>
+
+            <!-- Hidden File Input for DP Upload -->
+            <input type="file" id="userDpFileInput" accept="image/*" style="display:none;" onchange="handleUserDpUpload(event)">
+            
+            <button type="button" class="btn-change-dp-pill" onclick="triggerDpUpload()">
+              📷 Change DP / Photo
+            </button>
+
+            <!-- Quick Avatar Presets -->
+            <div class="avatar-presets-strip" title="Or pick a quick student avatar">
+              <span onclick="setAvatarPreset('👨‍💻')" title="Developer Boy">👨‍💻</span>
+              <span onclick="setAvatarPreset('👩‍💻')" title="Coder Girl">👩‍💻</span>
+              <span onclick="setAvatarPreset('🎓')" title="Scholar">🎓</span>
+              <span onclick="setAvatarPreset('🚀')" title="Innovator">🚀</span>
+              <span onclick="setAvatarPreset('⚡')" title="Hacker">⚡</span>
+            </div>
+
+            <h3 id="dashStudentName" class="student-name-heading">Rahul Sharma</h3>
+            <span id="dashCollege" class="student-college-sub">NIT Trichy • CSE</span>
+            <span class="student-verified-pill">⭐ B.Tech CSE Scholar</span>
+          </div>
+
+          <!-- Student Mini Stats Ribbon -->
+          <div class="student-stats-ribbon">
+            <div class="student-stat-item">
+              <strong id="dashPurchasesRibbonCount">0</strong>
+              <span>Notes Owned</span>
+            </div>
+            <div class="student-stat-item">
+              <strong style="color:#10B981;">Lifetime</strong>
+              <span>PDF Access</span>
+            </div>
+          </div>
+
+          <nav style="display:flex; flex-direction:column; gap:0.4rem; flex-grow:1;">
+            <button class="btn btn-primary w-100" style="text-align:left; justify-content:flex-start;" onclick="switchDashTab('purchases', this)">
+              📚 My Purchases (<span id="dashPurchasesCount">0</span>)
+            </button>
+            <button class="btn btn-outline w-100" style="text-align:left; justify-content:flex-start;" onclick="switchDashTab('history', this)">
+              🧾 Order History
+            </button>
+            <button class="btn btn-outline w-100" style="text-align:left; justify-content:flex-start;" onclick="triggerDpUpload()">
+              📷 Upload Profile DP
+            </button>
+          </nav>
+
+          <button class="btn btn-outline w-100 mt-3" style="color:#EF4444; border-color:#FCA5A5;" onclick="logoutStudent()">
+            🚪 Logout / Switch
+          </button>
+        </div>
+
+        <!-- Main Panel -->
+        <div style="padding:2.5rem; overflow-y:auto;">
+          <div id="panelPurchases">
+            <h2 style="font-size:1.4rem; color:#0F172A; margin-bottom:0.25rem;">My Purchased Notes</h2>
+            <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Download or view your verified study guides with lifetime access.</p>
+            <div class="product-cards-grid-4" id="dashPurchasesGrid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <div id="panelHistory" style="display:none;">
+            <h2 style="font-size:1.4rem; color:#0F172A; margin-bottom:0.25rem;">Order History</h2>
+            <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">All transactions and receipts.</p>
+            <div style="overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; color:#64748B; text-align:left;">
+                    <th style="padding:0.75rem;">Order ID</th>
+                    <th style="padding:0.75rem;">Date</th>
+                    <th style="padding:0.75rem;">Notes</th>
+                    <th style="padding:0.75rem;">Amount</th>
+                    <th style="padding:0.75rem;">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashOrdersTableBody">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. STORE OWNER ADMIN PANEL (WITH NEW PAYMENT QR SETTINGS) -->
+  <div class="modal-overlay" id="adminModal" onclick="closeAdminOnOverlay(event)">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="admin-top-bar">
+        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+          <span style="background:linear-gradient(135deg, #4F46E5, #7C3AED); color:#FFF; font-size:0.7rem; font-weight:800; padding:0.25rem 0.7rem; border-radius:99px; letter-spacing:0.04em;">STORE OWNER</span>
+          <h2 style="font-size:1.15rem; color:#0F172A; display:flex; align-items:center; gap:0.5rem; margin:0;">
+            Engineer's Diary • Management Console
+          </h2>
+          <div class="live-beacon" style="margin:0; padding:0.2rem 0.6rem;">
+            <div class="pulse-dot"></div>
+            <span>LIVE MONITORING ACTIVE</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <button class="btn btn-primary btn-sm" onclick="openAddNoteModal()" style="display:inline-flex; align-items:center; gap:0.35rem; padding:0.45rem 0.9rem; font-weight:700;">
+            <span>➕</span> Add Note
+          </button>
+          <button class="btn-simulate-order" onclick="simulateTestOrder()" title="Simulate a real-time student purchase to see live dashboard update">
+            <span>⚡</span> Simulate Purchase
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="resetToFreshData()" style="font-size:0.75rem; border-color:#CBD5E1; color:#334155; display:inline-flex; align-items:center; gap:0.3rem;" title="Reset store to brand new 2026 data">
+            <span>🔄</span> Fresh Data
+          </button>
+          <button class="btn btn-outline btn-sm" onclick="closeAdminPanel()">👁️ View Live Storefront</button>
+          <button class="modal-close-btn" onclick="closeAdminPanel()">×</button>
+        </div>
+      </div>
+
+      <div class="admin-body-layout">
+        <!-- Sidebar Navigation -->
+        <div class="admin-sidebar" style="overflow-y:auto; max-height:calc(100vh - 65px);">
+          <button class="admin-nav-item active" onclick="switchAdminTab('overview', this)">
+            <span>📊</span> Sales & Live Stream
+            <span id="adminSidebarLiveBadge" style="margin-left:auto; background:#10B981; color:#FFF; font-size:0.65rem; font-weight:800; padding:0.1rem 0.45rem; border-radius:99px;">LIVE</span>
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('paymentqr', this)">
+            <span>💳</span> Payment QR & UPI
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('products', this)">
+            <span>📚</span> Notes Catalog (<span id="adminProdCount">10</span>)
+            <span onclick="event.stopPropagation(); openAddNoteModal();" style="margin-left:auto; background:#EEF2FF; color:#4F46E5; font-size:0.68rem; font-weight:800; padding:0.15rem 0.45rem; border-radius:4px; border:1px solid #C7D2FE;" title="Add Note Now">+ Add</span>
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('orders', this)">
+            <span>🛒</span> Customer Orders (<span id="adminOrdersCount">12</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('projects', this)">
+            <span>💼</span> Projects Hub (<span id="adminProjectsCount">6</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('coding', this)">
+            <span>💻</span> Coding Problems (<span id="adminCodingCount">8</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('users', this)">
+            <span>👥</span> Students Directory (<span id="adminUsersCount">10</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('categories', this)">
+            <span>🏷️</span> Subject Categories (<span id="adminCategoriesCount">10</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('resources', this)">
+            <span>🎁</span> Free Resources (<span id="adminResourcesCount">6</span>)
+          </button>
+          <button class="admin-nav-item" onclick="switchAdminTab('coupons', this)">
+            <span>🎟️</span> Discount Coupons
+          </button>
+
+          <!-- Sidebar Bottom Quick Widget -->
+          <div style="margin-top:auto; padding-top:1.5rem; border-top:1px solid #E2E8F0;">
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:1rem; text-align:center;">
+              <span style="font-size:0.7rem; color:#64748B; font-weight:700; text-transform:uppercase; letter-spacing:0.04em;">Today's Live Sales</span>
+              <h4 id="sidebarTodaySales" style="font-size:1.35rem; color:#2563EB; margin:0.3rem 0 0.15rem; font-weight:800;">₹0</h4>
+              <span id="sidebarTodayOrders" style="font-size:0.72rem; color:#10B981; font-weight:600;">0 orders today</span>
+              <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.75rem;">
+                <button onclick="simulateTestOrder()" style="width:100%; background:#EEF2FF; border:1px solid #C7D2FE; color:#4F46E5; font-size:0.72rem; font-weight:700; padding:0.4rem; border-radius:6px; cursor:pointer;">
+                  + Test Purchase
+                </button>
+                <button onclick="resetToFreshData()" style="width:100%; background:#FFF; border:1px solid #CBD5E1; color:#64748B; font-size:0.7rem; font-weight:700; padding:0.3rem; border-radius:6px; cursor:pointer;">
+                  🔄 Reset Fresh Data
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="admin-main-content">
+          
+          <!-- TAB 1: OVERVIEW & REAL-TIME PURCHASES -->
+          <div id="adminTabOverview">
+            
+            <!-- Hero Banner -->
+            <div class="admin-hero-banner">
+              <div>
+                <div class="live-beacon">
+                  <div class="pulse-dot"></div>
+                  <span>LIVE STOREFRONT MONITORING • AUTO-SYNC ACTIVE</span>
+                </div>
+                <h3 style="font-size:1.45rem; font-weight:800; margin:0.25rem 0 0.4rem; letter-spacing:-0.01em;">
+                  Real-Time Sales & Purchases Command Center
+                </h3>
+                <p style="font-size:0.85rem; color:#CBD5E1; margin:0; max-width:620px; line-height:1.5;">
+                  Track every study material bought by engineering students across 120+ colleges in real time. Whenever any product is ordered, it appears right here instantly.
+                </p>
+              </div>
+
+              <div class="admin-action-btn-group">
+                <button class="btn-simulate-order" onclick="simulateTestOrder()">
+                  <span>⚡</span> Quick Simulate Purchase
+                </button>
+                <button class="btn-glass-banner" onclick="openManualOrderModal()">
+                  <span>➕</span> Record Manual Order
+                </button>
+                <button class="btn-glass-banner" onclick="resetToFreshData()" title="Reload fresh 2026 live orders, 10 notes catalog & student profile">
+                  <span>🔄</span> Reset Fresh Data
+                </button>
+                <button class="btn-glass-banner" onclick="exportOrdersCSV()">
+                  <span>📥</span> Export CSV
+                </button>
+              </div>
+            </div>
+
+            <!-- Modern KPI Cards (Total Users, Total Notes, Total Orders, Revenue, Popular Resources) -->
+            <div class="admin-kpis-grid">
+              
+              <!-- Card 1: Revenue -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">TOTAL STORE REVENUE</span>
+                  <div class="kpi-icon-badge kpi-icon-blue">💰</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminTotalRevenue">₹1,84,350</h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#10B981; font-weight:700;">↑ 34% this semester</span>
+                  <span style="color:#64748B;" id="adminTodayRevenueText">₹0 today</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Total Orders -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">TOTAL PAID ORDERS</span>
+                  <div class="kpi-icon-badge kpi-icon-green">📦</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminTotalOrdersCount">1,248</h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#10B981; font-weight:700;">100% Instant Dispatches</span>
+                  <span style="color:#64748B;" id="adminLiveOrdersCountText">0 tracked live</span>
+                </div>
+              </div>
+
+              <!-- Card 3: Total Users -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">TOTAL REGISTERED STUDENTS</span>
+                  <div class="kpi-icon-badge kpi-icon-purple">👥</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminTotalUsersCount">14,820</h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#10B981; font-weight:700;">+184 this week</span>
+                  <span style="color:#64748B;">Across 120+ colleges</span>
+                </div>
+              </div>
+
+              <!-- Card 4: Total Notes -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">TOTAL NOTES & MODULES</span>
+                  <div class="kpi-icon-badge kpi-icon-blue">📚</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminTotalNotesCount">10 Notes</h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#4F46E5; font-weight:700;">100% Verified PDFs</span>
+                  <span style="color:#64748B;">Sem 1 to 8</span>
+                </div>
+              </div>
+
+              <!-- Card 5: Popular Resources -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">POPULAR RESOURCES</span>
+                  <div class="kpi-icon-badge kpi-icon-amber">🏆</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminTopSellerTitle" style="font-size:1.15rem; line-height:1.3; min-height:48px; display:flex; align-items:center;">
+                  DSA Complete Notes
+                </h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#D97706; font-weight:700;" id="adminTopSellerCopies">45.2k Downloads</span>
+                  <span style="color:#64748B;">#1 in Demand</span>
+                </div>
+              </div>
+
+              <!-- Card 6: Payment QR Code Status -->
+              <div class="kpi-card-fresh">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <span class="kpi-title-label">PAYMENT QR CODE</span>
+                  <div class="kpi-icon-badge kpi-icon-green">💳</div>
+                </div>
+                <h3 class="kpi-big-value" id="adminActiveQrStatus" style="font-size:1.25rem; color:#10B981;">
+                  Configured & Live
+                </h3>
+                <div class="kpi-sub-row">
+                  <span style="color:#4F46E5; font-weight:600; font-family:var(--font-mono); font-size:0.72rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:140px;" id="adminActiveQrUpiId">engineersdiary@upi</span>
+                  <span style="color:#64748B;">Anti-Fraud Active</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- PRIMARY SECTION: LIVE REAL-TIME PURCHASES STREAM ("Ab jo bhi product le bo pta chle") -->
+            <div class="admin-section-box">
+              <div class="section-head-row">
+                <div>
+                  <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+                    <span class="section-badge-pill">
+                      <span class="pulse-dot" style="width:6px; height:6px;"></span>
+                      REAL-TIME STREAM
+                    </span>
+                    <h3 style="font-size:1.25rem; color:#0F172A; margin:0; font-weight:800;">
+                      🔥 Live Product Purchases & Customer Feed
+                    </h3>
+                  </div>
+                  <p style="font-size:0.84rem; color:#64748B; margin:0;">
+                    Live feed of students buying notes right now. Every purchase appears here with full product and buyer info.
+                  </p>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <span id="livePurchasesCounterBadge" style="background:#EEF2FF; color:#4F46E5; font-size:0.75rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:99px; border:1px solid #C7D2FE;">
+                    0 Purchases Recorded
+                  </span>
+                  <button class="btn btn-outline btn-sm" onclick="renderAdminOverviewDashboard()" title="Refresh Feed">
+                    🔄 Refresh
+                  </button>
+                </div>
+              </div>
+
+              <!-- Filter and Search Row -->
+              <div class="filter-bar-row">
+                <div class="admin-search-wrapper">
+                  <span class="admin-search-icon">🔍</span>
+                  <input type="text" id="adminPurchasesSearch" placeholder="Search by student name, college, or note title..." oninput="filterLivePurchases()">
+                </div>
+
+                <div class="admin-chips-scroll" id="adminPurchasesCategoryChips">
+                  <button class="admin-filter-chip active" onclick="setPurchasesCategoryFilter('all', this)">All Subjects</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('Python', this)">Python</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('DSA', this)">DSA</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('C & C++', this)">C & C++</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('Java', this)">Java</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('DBMS', this)">DBMS</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('OS', this)">OS</button>
+                  <button class="admin-filter-chip" onclick="setPurchasesCategoryFilter('CN', this)">Networks</button>
+                </div>
+              </div>
+
+              <!-- Dynamic Purchases List -->
+              <div class="purchases-feed-list" id="adminLivePurchasesList">
+                <!-- Rendered dynamically by renderAdminOverviewDashboard() -->
+              </div>
+            </div>
+
+            <!-- SECONDARY SECTION: PRODUCT-WISE SALES & LEADERBOARD -->
+            <div class="admin-section-box">
+              <div class="section-head-row">
+                <div>
+                  <h3 style="font-size:1.25rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">
+                    📊 Product-Wise Sales Analytics & Leaderboard
+                  </h3>
+                  <p style="font-size:0.84rem; color:#64748B; margin:0;">
+                    Complete breakdown of copies sold, revenue generated, and student demand across all subjects.
+                  </p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="switchAdminTab('products', document.querySelectorAll('.admin-nav-item')[2])">
+                  Manage Catalog →
+                </button>
+              </div>
+
+              <!-- Product Leaderboard Cards -->
+              <div class="product-leaderboard-grid" id="adminProductSalesLeaderboard">
+                <!-- Rendered dynamically by renderAdminOverviewDashboard() -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- TAB 2: PAYMENT QR & UPI SETTINGS (NEW USER FEATURE) -->
+          <div id="adminTabPaymentqr" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A;">Payment QR Code & UPI Settings</h3>
+                <p style="font-size:0.85rem; color:#64748B;">Set up your own custom UPI QR code and UPI ID to receive payments directly from students.</p>
+              </div>
+            </div>
+
+            <div class="qr-settings-grid">
+              
+              <!-- Left Form -->
+              <div class="qr-settings-card">
+                <form id="adminQrSettingsForm" onsubmit="saveAdminPaymentSettings(event)">
+                  
+                  <div style="margin-bottom:1rem;">
+                    <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                      Your Merchant / Business Name *
+                    </label>
+                    <input type="text" id="adminQrPayeeName" placeholder="e.g. Engineer's Diary Official" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+                    <small style="color:#64748B; font-size:0.75rem;">This name will appear on the customer checkout screen.</small>
+                  </div>
+
+                  <div style="margin-bottom:1.25rem;">
+                    <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                      Your UPI ID (VPA) *
+                    </label>
+                    <input type="text" id="adminQrUpiId" placeholder="e.g. yourname@okhdfcbank or 9876543210@paytm" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+                    <small style="color:#64748B; font-size:0.75rem;">Customers can copy this UPI ID directly to pay in GPay/PhonePe.</small>
+                  </div>
+
+                  <div style="margin-bottom:1.25rem;">
+                    <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                      Upload Custom Payment QR Image (File)
+                    </label>
+                    <input type="file" id="adminQrFileInput" accept="image/*" onchange="handleAdminQrFileUpload(event)" style="width:100%; padding:0.4rem 0.6rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+                    <small style="color:#64748B; font-size:0.75rem;">Upload your PhonePe, Google Pay, or Paytm QR screenshot/PNG.</small>
+                  </div>
+
+                  <div style="margin-bottom:1.5rem;">
+                    <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                      Or Enter QR Code Image URL
+                    </label>
+                    <input type="url" id="adminQrUrlInput" placeholder="https://example.com/my-upi-qr.png" oninput="handleAdminQrUrlInput(this.value)" style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+                  </div>
+
+                  <div style="display:flex; gap:0.75rem;">
+                    <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.4rem;">
+                      💾 Save Payment QR Settings
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetDefaultAdminQr()">
+                      Reset to Default QR
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+
+              <!-- Right Live Preview Card -->
+              <div class="qr-live-preview-box">
+                <span style="font-size:0.75rem; font-weight:700; color:#4F46E5; background:#EEF2FF; padding:0.2rem 0.6rem; border-radius:99px; margin-bottom:0.75rem;">LIVE CHECKOUT PREVIEW</span>
+                <h4 id="previewAdminPayeeName" style="color:#0F172A; font-size:1.05rem; margin-bottom:0.25rem;">Engineer's Diary Store</h4>
+                <span id="previewAdminUpiId" style="font-size:0.82rem; color:#64748B; margin-bottom:1rem;">engineersdiary@upi</span>
+                
+                <img id="adminLiveQrPreviewImg" src="assets/images/default_qr.jpg" alt="Active QR Code Preview" class="preview-qr-img">
+                
+                <p style="font-size:0.75rem; color:#64748B; margin-top:1rem;">
+                  ✅ This QR code is actively displayed to all students during checkout.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TAB 3: PRODUCTS CATALOG -->
+          <div id="adminTabProducts" style="display:none;">
+            
+            <!-- Header with Title & Add Note Button -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Manage Notes Catalog</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Add new handwritten study notes, update sale prices, or remove notes from the student storefront.</p>
+              </div>
+              <button class="btn btn-primary" onclick="openAddNoteModal()" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.4rem; font-weight:700; border-radius:10px; box-shadow:0 4px 14px rgba(79, 70, 229, 0.3);">
+                <span style="font-size:1.1rem; line-height:1;">+</span> Add New Note
+              </button>
+            </div>
+
+            <!-- QUICK INLINE ADD NOTE CARD (RIGHT ON THE PAGE) -->
+            <div style="background:#FFFFFF; border:1px solid #E2E8F0; border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; box-shadow:var(--shadow-sm);">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <span style="font-size:1.1rem;">⚡</span>
+                  <strong style="color:#0F172A; font-size:0.95rem;">Quick Add Note (Instant)</strong>
+                  <span style="background:#EEF2FF; color:#4F46E5; font-size:0.72rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:99px;">FAST CREATOR</span>
+                </div>
+                <span style="font-size:0.75rem; color:#64748B;">Enter details below to publish directly to the live store</span>
+              </div>
+
+              <form id="adminQuickAddNoteForm" onsubmit="submitAdminQuickAddNote(event)" style="display:grid; grid-template-columns:2fr 1.1fr 0.65fr 0.9fr 1.2fr auto; gap:0.75rem; align-items:end;">
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#475569; display:block; margin-bottom:0.25rem;">Note Title *</label>
+                  <input type="text" id="quickAddTitle" placeholder="e.g. Compiler Design Notes" required style="width:100%; padding:0.55rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#475569; display:block; margin-bottom:0.25rem;">Subject *</label>
+                  <select id="quickAddCategory" required style="width:100%; padding:0.55rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF;">
+                    <option value="DSA">DSA</option>
+                    <option value="Python">Python</option>
+                    <option value="C & C++">C & C++</option>
+                    <option value="Java">Java</option>
+                    <option value="DBMS">DBMS & SQL</option>
+                    <option value="OS">Operating Systems</option>
+                    <option value="Computer Networks">Computer Networks</option>
+                    <option value="AI & ML">AI & ML</option>
+                    <option value="Web Development">Web Development</option>
+                  </select>
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#475569; display:block; margin-bottom:0.25rem;">Pages *</label>
+                  <input type="number" id="quickAddPages" min="1" value="160" required style="width:100%; padding:0.55rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#475569; display:block; margin-bottom:0.25rem;">Price (₹) *</label>
+                  <input type="number" id="quickAddPrice" min="1" value="239" required style="width:100%; padding:0.55rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; font-weight:700; color:#2563EB;">
+                </div>
+                <div>
+                  <label style="font-size:0.75rem; font-weight:700; color:#475569; display:block; margin-bottom:0.25rem;">Notes PDF (.pdf)</label>
+                  <div style="display:flex; align-items:center; gap:0.35rem;">
+                    <input type="file" id="quickAddPdfFile" accept="application/pdf,.pdf" style="display:none;" onchange="handleQuickAddPdfSelected(event)">
+                    <button type="button" class="btn btn-outline" id="quickAddPdfBtn" onclick="document.getElementById('quickAddPdfFile').click()" style="padding:0.52rem 0.65rem; font-size:0.78rem; white-space:nowrap; border-radius:8px; width:100%; display:inline-flex; align-items:center; justify-content:center; gap:0.25rem;">
+                      <span id="quickAddPdfLabel">📎 Attach PDF</span>
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary" style="padding:0.58rem 1.25rem; font-weight:700; font-size:0.85rem; white-space:nowrap; border-radius:8px;">
+                    + Add Note
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Notes Table Container with Search & Filter -->
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:14px; overflow:hidden; box-shadow:var(--shadow-sm);">
+              <div style="padding:0.85rem 1.25rem; background:#F8FAFC; border-bottom:1px solid #E2E8F0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+                <div style="font-size:0.82rem; font-weight:700; color:#334155;">
+                  Active Catalog Notes (<span id="adminCatalogTableCount">8</span> items)
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                  <button class="btn btn-outline btn-sm" onclick="openAddNoteModal()" style="font-size:0.78rem;">
+                    ✨ Open Detailed Note Form
+                  </button>
+                </div>
+              </div>
+
+              <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                  <thead>
+                    <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                      <th style="padding:0.85rem 1rem;">Title</th>
+                      <th style="padding:0.85rem 1rem;">Category</th>
+                      <th style="padding:0.85rem 1rem;">Pages</th>
+                      <th style="padding:0.85rem 1rem;">Price</th>
+                      <th style="padding:0.85rem 1rem;">Notes PDF Document</th>
+                      <th style="padding:0.85rem 1rem;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="adminProductsTableBody"></tbody>
+                </table>
+              </div>
+
+              <!-- Clickable Table Footer to Add Another Note -->
+              <div style="padding:0.85rem; text-align:center; background:#F8FAFC; border-top:1px dashed #CBD5E1;">
+                <button onclick="openAddNoteModal()" style="background:none; border:none; color:#4F46E5; font-size:0.85rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem;">
+                  <span style="font-size:1.1rem;">➕</span> Click here to add another study note to store
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: ORDERS -->
+          <div id="adminTabOrders" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Customer Orders & Payment Logs</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Complete audit trail of student transactions and digital note dispatches.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+                <button class="btn btn-outline btn-sm" onclick="openReceiptVerificationPortal()" style="border-color:#10B981; color:#065F46; background:#ECFDF5; font-weight:700; display:inline-flex; align-items:center; gap:0.35rem;">
+                  <span>🛡️</span> Verify Receipt / Anti-Fraud
+                </button>
+                <button class="btn btn-outline btn-sm" onclick="exportOrdersCSV()">📥 Export CSV</button>
+                <button class="btn btn-primary btn-sm" onclick="openManualOrderModal()">+ New Order</button>
+              </div>
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:14px; overflow-x:auto; box-shadow:var(--shadow-sm);">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Order ID</th>
+                    <th style="padding:0.85rem 1rem;">Date & Time</th>
+                    <th style="padding:0.85rem 1rem;">Student Details</th>
+                    <th style="padding:0.85rem 1rem;">Products Purchased</th>
+                    <th style="padding:0.85rem 1rem;">Amount</th>
+                    <th style="padding:0.85rem 1rem;">Payment Method</th>
+                    <th style="padding:0.85rem 1rem;">Status</th>
+                    <th style="padding:0.85rem 1rem;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminOrdersTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 5: COUPONS -->
+          <div id="adminTabCoupons" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+              <h3 style="font-size:1.3rem;">Discount Coupons</h3>
+              <button class="btn btn-primary btn-sm" onclick="openAddCouponModal()">+ Add Coupon</button>
+            </div>
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; color:#64748B; text-align:left;">
+                    <th style="padding:0.75rem 1rem;">Code</th>
+                    <th style="padding:0.75rem 1rem;">Discount</th>
+                    <th style="padding:0.75rem 1rem;">Usage</th>
+                    <th style="padding:0.75rem 1rem;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCouponsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 6: PROJECTS MANAGEMENT -->
+          <div id="adminTabProjects" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Projects Marketplace Management</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Manage capstones, mini projects, final year synopses, and viva question banks.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <button class="btn btn-primary btn-sm" onclick="openAddProjectModal()">➕ Add New Project</button>
+              </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; padding:1rem; margin-bottom:1.25rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+              <input type="text" id="adminProjectsSearch" placeholder="Search by project title or tech stack (e.g. Python, React)..." style="flex:1; min-width:240px; padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;" oninput="filterAdminProjects()">
+              <select id="adminProjectsCategoryFilter" onchange="filterAdminProjects()" style="padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF; color:#334155; font-weight:600;">
+                <option value="all">All Project Types</option>
+                <option value="Final Year Projects">Final Year Projects</option>
+                <option value="Major Projects">Major Projects</option>
+                <option value="Mini Projects">Mini Projects</option>
+                <option value="AI/ML Projects">AI/ML Projects</option>
+                <option value="Web Development">Web Development</option>
+              </select>
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Project Details</th>
+                    <th style="padding:0.85rem 1rem;">Category</th>
+                    <th style="padding:0.85rem 1rem;">Tech Stack</th>
+                    <th style="padding:0.85rem 1rem;">Difficulty</th>
+                    <th style="padding:0.85rem 1rem;">Resources & Viva</th>
+                    <th style="padding:0.85rem 1rem;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminProjectsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 7: CODING PROBLEMS -->
+          <div id="adminTabCoding" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Coding Challenge & Sandbox Management</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Manage coding problems, starter test cases, solution codes, and track student completion.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <button class="btn btn-primary btn-sm" onclick="openAddCodingModal()">➕ Add Coding Challenge</button>
+              </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; padding:1rem; margin-bottom:1.25rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+              <input type="text" id="adminCodingSearch" placeholder="Search by problem title or topic..." style="flex:1; min-width:240px; padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;" oninput="filterAdminCoding()">
+              <select id="adminCodingTopicFilter" onchange="filterAdminCoding()" style="padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF; color:#334155; font-weight:600;">
+                <option value="all">All Topics</option>
+                <option value="DSA">DSA</option>
+                <option value="Python">Python</option>
+                <option value="C & C++">C / C++</option>
+                <option value="Java">Java</option>
+                <option value="SQL">SQL</option>
+              </select>
+              <select id="adminCodingDiffFilter" onchange="filterAdminCoding()" style="padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF; color:#334155; font-weight:600;">
+                <option value="all">All Difficulties</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Problem Title & ID</th>
+                    <th style="padding:0.85rem 1rem;">Topic</th>
+                    <th style="padding:0.85rem 1rem;">Difficulty</th>
+                    <th style="padding:0.85rem 1rem;">Acceptance Rate</th>
+                    <th style="padding:0.85rem 1rem;">Status</th>
+                    <th style="padding:0.85rem 1rem;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCodingTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 8: REGISTERED STUDENTS & USERS -->
+          <div id="adminTabUsers" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Registered Engineering Students</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Student profiles, colleges, branches, purchased notes, and coding progress metrics.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <span style="background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0; font-size:0.78rem; font-weight:700; padding:0.35rem 0.75rem; border-radius:99px;">
+                  🟢 14,820 Verified Students
+                </span>
+              </div>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; padding:1rem; margin-bottom:1.25rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+              <input type="text" id="adminUsersSearch" placeholder="Search by student name, college, email, or branch..." style="flex:1; min-width:240px; padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;" oninput="filterAdminUsers()">
+              <select id="adminUsersYearFilter" onchange="filterAdminUsers()" style="padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF; color:#334155; font-weight:600;">
+                <option value="all">All Academic Years</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Student Details</th>
+                    <th style="padding:0.85rem 1rem;">College & Branch</th>
+                    <th style="padding:0.85rem 1rem;">Current Year</th>
+                    <th style="padding:0.85rem 1rem;">Notes Purchased</th>
+                    <th style="padding:0.85rem 1rem;">Coding Solved</th>
+                    <th style="padding:0.85rem 1rem;">Status</th>
+                    <th style="padding:0.85rem 1rem;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminUsersTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 9: CATEGORIES MANAGEMENT -->
+          <div id="adminTabCategories" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Subject & Engineering Categories</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Organize curriculum streams across Programming, Core CS, AI/ML, and Semester batches.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <button class="btn btn-primary btn-sm" onclick="openAddCategoryModal()">➕ Add Category</button>
+              </div>
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Category Name & Icon</th>
+                    <th style="padding:0.85rem 1rem;">Curriculum Scope</th>
+                    <th style="padding:0.85rem 1rem;">Target Semesters</th>
+                    <th style="padding:0.85rem 1rem;">Active Resources</th>
+                    <th style="padding:0.85rem 1rem;">Status</th>
+                    <th style="padding:0.85rem 1rem;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminCategoriesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB 10: FREE RESOURCES MANAGEMENT -->
+          <div id="adminTabResources" style="display:none;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; flex-wrap:wrap; gap:0.75rem;">
+              <div>
+                <h3 style="font-size:1.35rem; color:#0F172A; margin:0 0 0.25rem; font-weight:800;">Free Engineering Resources & Cheat Sheets</h3>
+                <p style="font-size:0.85rem; color:#64748B; margin:0;">Manage open-access revision sheets, formula handbooks, and interview guides.</p>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <button class="btn btn-primary btn-sm" onclick="openAddResourceModal()">➕ Add Free Resource</button>
+              </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; padding:1rem; margin-bottom:1.25rem; display:flex; gap:1rem; align-items:center;">
+              <input type="text" id="adminResourcesSearch" placeholder="Search by resource title, topic, or format..." style="flex:1; padding:0.55rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;" oninput="filterAdminResources()">
+            </div>
+
+            <div style="background:#FFF; border:1px solid #E2E8F0; border-radius:12px; overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; font-size:0.86rem;">
+                <thead>
+                  <tr style="border-bottom:1px solid #CBD5E1; background:#F8FAFC; color:#64748B; text-align:left;">
+                    <th style="padding:0.85rem 1rem;">Resource Title</th>
+                    <th style="padding:0.85rem 1rem;">Category</th>
+                    <th style="padding:0.85rem 1rem;">Format</th>
+                    <th style="padding:0.85rem 1rem;">Total Downloads</th>
+                    <th style="padding:0.85rem 1rem;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminResourcesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. ADMIN ADD NOTE MODAL -->
+  <div class="modal-overlay" id="adminAddNoteModal" onclick="closeAddNoteOnOverlay(event)">
+    <div class="modal-dialog modal-md" style="max-width:560px; max-height:90vh; overflow-y:auto;">
+      <button class="modal-close-btn" onclick="closeAddNoteModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">📚</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0;">Add New Study Note</h3>
+        </div>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Add a new programming subject or handwritten notes pack to the student storefront.</p>
+
+        <form id="adminAddNoteForm" onsubmit="submitAdminAddNote(event)">
+          <div style="margin-bottom:1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Note Title *</label>
+            <input type="text" id="addNoteTitle" required placeholder="e.g. Compiler Design Complete Handwritten Notes" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Subject Category *</label>
+              <select id="addNoteCategory" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem; background:#FFF;">
+                <option value="DSA">Data Structures & Algorithms (DSA)</option>
+                <option value="Python">Python</option>
+                <option value="C & C++">C & C++</option>
+                <option value="Java">Java</option>
+                <option value="DBMS">DBMS & SQL</option>
+                <option value="OS">Operating Systems (OS)</option>
+                <option value="Computer Networks">Computer Networks (CN)</option>
+                <option value="AI & ML">AI & Machine Learning</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Core Engineering">Core Engineering</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Total Pages *</label>
+              <input type="number" id="addNotePages" required min="1" placeholder="e.g. 180" value="160" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Sale Price ₹ (Student Pays) *</label>
+              <input type="number" id="addNoteSalePrice" required min="1" placeholder="e.g. 239" value="239" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.95rem; font-weight:800; color:#2563EB;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Original MRP ₹ (Strikethrough)</label>
+              <input type="number" id="addNoteOrigPrice" min="1" placeholder="e.g. 299" value="299" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.95rem; color:#64748B;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Offer Badge</label>
+            <input type="text" id="addNoteBadge" placeholder="e.g. 20% OFF or Bestseller" value="20% OFF" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Cover Artwork Style</label>
+            <select id="addNoteCoverPreset" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem; background:#FFF;">
+              <option value="assets/images/cover_dsa.jpg">DSA Algorithms Graphic Cover</option>
+              <option value="assets/images/cover_python.jpg">Python Programming Cover</option>
+              <option value="assets/images/cover_java.jpg">Java Programming Cover</option>
+              <option value="assets/images/cover_cpp.jpg">C++ Complete Notes Cover</option>
+              <option value="assets/images/cover_c.jpg">C Language Notes Cover</option>
+              <option value="assets/images/cover_dbms.jpg">DBMS & SQL Exam Cover</option>
+              <option value="assets/images/notes_tablet_showcase.jpg">Real Study Tablet Showcase</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:1.25rem; background:#F8FAFC; border:1px solid #CBD5E1; border-radius:12px; padding:1.1rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <label style="font-size:0.84rem; font-weight:700; color:#0F172A; display:flex; align-items:center; gap:0.35rem; margin:0;">
+                <span>📄</span> Attach Notes PDF Document (.pdf)
+              </label>
+              <span id="addNotePdfStatusBadge" style="font-size:0.72rem; color:#4F46E5; font-weight:700; background:#EEF2FF; padding:0.15rem 0.5rem; border-radius:99px;">PDF ATTACHMENT</span>
+            </div>
+            
+            <input type="file" id="addNotePdfFileInput" accept="application/pdf,.pdf" onchange="handleAddNotePdfChange(event)" style="width:100%; padding:0.5rem; border:1px dashed #94A3B8; border-radius:8px; font-size:0.82rem; background:#FFF;">
+            <div id="addNotePdfFileInfo" style="display:none; font-size:0.75rem; color:#059669; font-weight:700; margin-top:0.35rem;">
+              ✓ PDF Selected: <span id="addNotePdfFileName">notes.pdf</span>
+            </div>
+            
+            <div style="margin-top:0.75rem;">
+              <span style="font-size:0.75rem; color:#64748B; display:block; margin-bottom:0.25rem;">Or Enter Direct PDF Download / Google Drive URL:</span>
+              <input type="url" id="addNotePdfUrlInput" placeholder="https://drive.google.com/file/d/... or direct PDF link" style="width:100%; padding:0.55rem 0.75rem; border:1px solid #CBD5E1; border-radius:6px; font-size:0.85rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Short Description</label>
+            <textarea id="addNoteDesc" rows="3" placeholder="Brief summary of syllabus and topics covered..." style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem; resize:vertical;">Complete handwritten notes with visual diagrams, flowcharts and solved university exam problems.</textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAddNoteModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.6rem; font-weight:700;">+ Add Note & Attach PDF</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7B. ADMIN UPLOAD / MANAGE NOTES PDF MODAL -->
+  <div class="modal-overlay" id="adminUploadPdfModal" onclick="closeAdminPdfOnOverlay(event)">
+    <div class="modal-dialog modal-md" style="max-width:540px;">
+      <button class="modal-close-btn" onclick="closeAdminPdfModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.6rem;">📄</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0;">Upload & Manage Notes PDF</h3>
+        </div>
+        <p id="adminPdfModalNoteTitle" style="font-size:0.92rem; color:#2563EB; font-weight:700; margin-bottom:1.25rem; line-height:1.3;">Python Programming Complete Notes</p>
+
+        <!-- Current Status Banner -->
+        <div id="adminPdfCurrentStatusBox" style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:0.85rem 1rem; margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:0.65rem;">
+            <span style="font-size:1.4rem;">📑</span>
+            <div>
+              <strong id="adminPdfCurrentName" style="color:#0F172A; font-size:0.88rem; display:block;">Python_Notes.pdf</strong>
+              <span id="adminPdfCurrentMeta" style="font-size:0.75rem; color:#64748B;">Ready • 24.5 MB • Digital PDF</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:0.4rem;">
+            <button type="button" class="btn btn-outline btn-sm" onclick="previewCurrentAdminPdf()" style="font-size:0.75rem; padding:0.25rem 0.55rem;">
+              👁️ Preview
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" onclick="removeCurrentAdminPdf()" style="color:#EF4444; border-color:#FCA5A5; font-size:0.75rem; padding:0.25rem 0.45rem;" title="Remove PDF">
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <form id="adminUploadPdfForm" onsubmit="submitAdminPdfUpload(event)">
+          <input type="hidden" id="adminPdfNoteId">
+
+          <!-- Dropzone file upload -->
+          <div class="pdf-dropzone-box" id="adminPdfDropzone" onclick="document.getElementById('adminPdfModalFileInput').click()">
+            <input type="file" id="adminPdfModalFileInput" accept="application/pdf,.pdf" style="display:none;" onchange="handleAdminPdfModalFileSelected(event)">
+            <span class="pdf-dropzone-icon">📤</span>
+            <strong style="color:#0F172A; font-size:0.95rem; display:block; margin-bottom:0.25rem;">
+              Click to choose PDF from Computer / Mobile
+            </strong>
+            <span style="font-size:0.78rem; color:#64748B;">Supports all standard .pdf documents (Handwritten notes, Question banks, Slides)</span>
+          </div>
+
+          <!-- Staged file banner (hidden until selected) -->
+          <div id="adminPdfStagedBanner" class="pdf-selected-banner" style="display:none;">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span style="font-size:1.3rem;">✅</span>
+              <div>
+                <strong id="adminPdfStagedName" style="font-size:0.88rem; color:#065F46; display:block;">Selected_File.pdf</strong>
+                <span id="adminPdfStagedSize" style="font-size:0.75rem; color:#047857;">14.2 MB • Ready to attach</span>
+              </div>
+            </div>
+            <button type="button" onclick="cancelStagedPdf()" style="background:none; border:none; color:#EF4444; font-weight:700; cursor:pointer; font-size:0.85rem;">
+              Remove
+            </button>
+          </div>
+
+          <div style="margin:1.25rem 0 1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+              Or Enter Cloud / Google Drive PDF Link
+            </label>
+            <input type="url" id="adminPdfModalUrlInput" placeholder="https://drive.google.com/file/d/... or direct PDF link" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;">
+            <small style="color:#64748B; font-size:0.73rem; display:block; margin-top:0.3rem;">Students can download this link immediately upon payment verification.</small>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAdminPdfModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.6rem; font-weight:700;">
+              💾 Attach PDF to Note
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 8. ADMIN EDIT PRICE MODAL -->
+  <div class="modal-overlay" id="adminEditPriceModal" onclick="closeEditPriceOnOverlay(event)">
+    <div class="modal-dialog modal-sm" style="max-width:440px;">
+      <button class="modal-close-btn" onclick="closeEditPriceModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">🏷️</span>
+          <h3 style="font-size:1.3rem; color:#0F172A; margin:0;">Edit Note Price</h3>
+        </div>
+        <p id="editPriceNoteTitle" style="font-size:0.88rem; color:#2563EB; margin-bottom:1.5rem; font-weight:700; line-height:1.3;">Python Programming Complete Notes</p>
+
+        <form id="adminEditPriceForm" onsubmit="submitAdminEditPrice(event)">
+          <input type="hidden" id="editPriceNoteId">
+
+          <div style="margin-bottom:1.25rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+              Sale Price ₹ (What students pay) *
+            </label>
+            <div style="position:relative;">
+              <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); font-weight:800; color:#2563EB; font-size:1.1rem;">₹</span>
+              <input type="number" id="editPriceSale" required min="1" style="width:100%; padding:0.65rem 0.85rem 0.65rem 2rem; border:1px solid #CBD5E1; border-radius:8px; font-size:1.1rem; font-weight:800; color:#2563EB;">
+            </div>
+            <small style="color:#64748B; font-size:0.75rem;">This price is charged during UPI QR checkout.</small>
+          </div>
+
+          <div style="margin-bottom:1.25rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+              Original MRP ₹ (Strikethrough to show discount)
+            </label>
+            <div style="position:relative;">
+              <span style="position:absolute; left:0.85rem; top:50%; transform:translateY(-50%); color:#94A3B8; font-weight:700;">₹</span>
+              <input type="number" id="editPriceOrig" min="1" style="width:100%; padding:0.65rem 0.85rem 0.65rem 2rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.95rem; color:#64748B;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+              Offer Badge (e.g. 20% OFF, 25% OFF, Bestseller)
+            </label>
+            <input type="text" id="editPriceBadge" placeholder="e.g. 20% OFF" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeEditPriceModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem;">💾 Update Price</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8B. ADMIN ADD PROJECT MODAL -->
+  <div class="modal-overlay" id="adminAddProjectModal" onclick="if(event.target.id==='adminAddProjectModal') closeAddProjectModal()">
+    <div class="modal-dialog modal-md" style="max-width:560px; max-height:90vh; overflow-y:auto;">
+      <button class="modal-close-btn" onclick="closeAddProjectModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">💼</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0; font-weight:800;">Add New Project</h3>
+        </div>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Publish an industry capstone or mini project with full source code & viva prep.</p>
+
+        <form id="adminAddProjectForm" onsubmit="submitAdminAddProject(event)">
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Project Title *</label>
+            <input type="text" id="addProjectTitle" placeholder="e.g. AI Smart Code Reviewer & Scanner" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Category *</label>
+              <select id="addProjectCategory" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem; background:#FFF;">
+                <option value="Final Year Projects">Final Year Projects</option>
+                <option value="Major Projects">Major Projects</option>
+                <option value="Mini Projects">Mini Projects</option>
+                <option value="AI/ML Projects">AI/ML Projects</option>
+                <option value="Web Development">Web Development</option>
+                <option value="IoT Projects">IoT Projects</option>
+                <option value="Hackathon Projects">Hackathon Projects</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Difficulty *</label>
+              <select id="addProjectDifficulty" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem; background:#FFF;">
+                <option value="Beginner">Beginner (1st/2nd Year)</option>
+                <option value="Intermediate">Intermediate (3rd Year)</option>
+                <option value="Advanced">Advanced (Final Year)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Tech Stack (Comma-separated) *</label>
+            <input type="text" id="addProjectTechStack" placeholder="e.g. Python, FastAPI, Docker, React" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Problem Statement *</label>
+            <textarea id="addProjectProblem" rows="3" placeholder="Explain the real-world engineering problem this project solves..." required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;"></textarea>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">GitHub Repository URL</label>
+            <input type="url" id="addProjectGithub" placeholder="https://github.com/engineersdiary/project-name" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAddProjectModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem;">🚀 Publish Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8C. ADMIN ADD CODING CHALLENGE MODAL -->
+  <div class="modal-overlay" id="adminAddCodingModal" onclick="if(event.target.id==='adminAddCodingModal') closeAddCodingModal()">
+    <div class="modal-dialog modal-md" style="max-width:560px; max-height:90vh; overflow-y:auto;">
+      <button class="modal-close-btn" onclick="closeAddCodingModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">💻</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0; font-weight:800;">Add Coding Challenge</h3>
+        </div>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Create a coding problem with starter code, difficulty, and complexity metrics.</p>
+
+        <form id="adminAddCodingForm" onsubmit="submitAdminAddCoding(event)">
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Problem Title *</label>
+            <input type="text" id="addCodingTitle" placeholder="e.g. Two Sum • Target Pair Index" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin-bottom:1.1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Difficulty *</label>
+              <select id="addCodingDifficulty" required style="width:100%; padding:0.65rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF;">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Topic *</label>
+              <input type="text" id="addCodingTopic" placeholder="e.g. Arrays & Hashing" required style="width:100%; padding:0.65rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Language *</label>
+              <select id="addCodingLang" required style="width:100%; padding:0.65rem 0.75rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; background:#FFF;">
+                <option value="Python">Python</option>
+                <option value="C++">C++</option>
+                <option value="Java">Java</option>
+                <option value="SQL">SQL</option>
+                <option value="JavaScript">JavaScript</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Problem Description *</label>
+            <textarea id="addCodingDesc" rows="3" placeholder="Describe inputs, outputs, and constraints..." required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;"></textarea>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Starter Template Code *</label>
+            <textarea id="addCodingStarter" rows="4" placeholder="def solution(nums, target):&#10;    # Write your solution here&#10;    pass" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem; font-family:var(--font-mono); background:#F8FAFC;"></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAddCodingModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem;">💾 Add Challenge</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8D. ADMIN ADD FREE RESOURCE MODAL -->
+  <div class="modal-overlay" id="adminAddResourceModal" onclick="if(event.target.id==='adminAddResourceModal') closeAddResourceModal()">
+    <div class="modal-dialog modal-md" style="max-width:520px; max-height:90vh; overflow-y:auto;">
+      <button class="modal-close-btn" onclick="closeAddResourceModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">🎁</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0; font-weight:800;">Add Free Engineering Resource</h3>
+        </div>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Add a free cheat sheet, formula PDF, or interview revision guide.</p>
+
+        <form id="adminAddResourceForm" onsubmit="submitAdminAddResource(event)">
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Resource Title *</label>
+            <input type="text" id="addResourceTitle" placeholder="e.g. SQL Query Optimization & Joins Cheat Sheet" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Category *</label>
+              <input type="text" id="addResourceCategory" placeholder="e.g. SQL / Databases" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Format *</label>
+              <select id="addResourceFormat" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem; background:#FFF;">
+                <option value="Cheat Sheet PDF">Cheat Sheet PDF</option>
+                <option value="Formula Handbook PDF">Formula Handbook PDF</option>
+                <option value="Viva Guide PDF">Viva Guide PDF</option>
+                <option value="Quick Reference Chart">Quick Reference Chart</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Badge Pill (e.g. Free PDF, 100% Free)</label>
+            <input type="text" id="addResourceBadge" placeholder="e.g. SQL & Joins" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Description *</label>
+            <textarea id="addResourceDesc" rows="3" placeholder="Key topics covered in this free sheet..." required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;"></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAddResourceModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem;">🎉 Add Resource</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8E. ADMIN ADD CATEGORY MODAL -->
+  <div class="modal-overlay" id="adminAddCategoryModal" onclick="if(event.target.id==='adminAddCategoryModal') closeAddCategoryModal()">
+    <div class="modal-dialog modal-sm" style="max-width:440px;">
+      <button class="modal-close-btn" onclick="closeAddCategoryModal()">×</button>
+      <div style="padding:2rem;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+          <span style="font-size:1.5rem;">🏷️</span>
+          <h3 style="font-size:1.35rem; color:#0F172A; margin:0; font-weight:800;">Add Subject Category</h3>
+        </div>
+        <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.5rem;">Create a curriculum category for notes, projects, and roadmaps.</p>
+
+        <form id="adminAddCategoryForm" onsubmit="submitAdminAddCategory(event)">
+          <div style="margin-bottom:1.1rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Category Name *</label>
+            <input type="text" id="addCatName" placeholder="e.g. Cyber Security & Forensics" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 2fr; gap:0.75rem; margin-bottom:1.1rem;">
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Icon Emoji *</label>
+              <input type="text" id="addCatIcon" placeholder="🛡️" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:1.1rem; text-align:center;">
+            </div>
+            <div>
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Target Semesters *</label>
+              <input type="text" id="addCatSems" placeholder="e.g. 5th - 8th Sem" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.5rem;">
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">Curriculum Scope Description</label>
+            <textarea id="addCatScope" rows="2" placeholder="Brief outline of syllabus covered..." style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem;"></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+            <button type="button" class="btn btn-secondary" onclick="closeAddCategoryModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem;">💾 Save Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. REAL MOBILE NUMBER & OTP LOGIN/REGISTER MODAL -->
+  <div class="modal-overlay" id="otpAuthModal" onclick="closeAuthOnOverlay(event)">
+    <div class="modal-dialog modal-sm" style="max-width:440px; border-radius:20px; overflow:hidden;">
+      <button class="modal-close-btn" onclick="closeAuthModal()">×</button>
+      
+      <!-- Top Brand Header -->
+      <div style="background:linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #4F46E5 100%); padding:2rem 1.75rem 1.5rem; text-align:center; color:#FFFFFF; position:relative;">
+        <div class="brand-logo-frame" style="width:48px; height:48px; margin:0 auto 0.75rem; border:2px solid rgba(255,255,255,0.4); box-shadow:0 8px 20px rgba(0,0,0,0.25);">
+          <img src="assets/images/logo.jpg" alt="Engineer's Diary" class="brand-logo-img">
+        </div>
+        <h3 id="authModalTitle" style="font-size:1.25rem; font-weight:800; margin-bottom:0.25rem; color:#FFFFFF;">Student Login / Register</h3>
+        <p style="font-size:0.8rem; color:#DBEAFE; margin:0;">Access your verified notes & instant downloads</p>
+      </div>
+
+      <!-- SMS Notification Simulated Toast (Real Website Look) -->
+      <div id="simulatedSmsToast" style="display:none; background:#0F172A; color:#F8FAFC; padding:0.85rem 1.25rem; border-left:4px solid #10B981; font-size:0.82rem; margin:1rem 1.5rem 0; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.15);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.35rem;">
+          <strong style="color:#38BDF8;">📲 SMS from ED-DIARY</strong>
+          <span style="font-size:0.7rem; color:#94A3B8;">Just now</span>
+        </div>
+        <div>Your Engineer's Diary login OTP is: <strong id="simulatedOtpCode" style="color:#FBBF24; font-size:1.05rem; letter-spacing:1px;">4829</strong></div>
+        <button type="button" onclick="autoFillOtp()" style="background:#2563EB; color:#FFF; border:none; padding:0.25rem 0.65rem; border-radius:4px; font-size:0.75rem; font-weight:700; margin-top:0.4rem; cursor:pointer;">
+          ⚡ Click to Auto-Fill
+        </button>
+      </div>
+
+      <div style="padding:1.75rem;">
+        
+        <!-- STEP 1: MOBILE NUMBER INPUT -->
+        <div id="authStep1Phone">
+          <form onsubmit="handleSendOtp(event)">
+            <div style="margin-bottom:1.15rem;">
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                Mobile Number *
+              </label>
+              <div style="display:flex; border:1px solid #CBD5E1; border-radius:10px; overflow:hidden; background:#FFF; transition:border-color 0.2s;">
+                <div style="background:#F8FAFC; border-right:1px solid #CBD5E1; padding:0.65rem 0.85rem; font-weight:700; color:#334155; display:flex; align-items:center; gap:0.35rem; font-size:0.9rem;">
+                  <span>🇮🇳</span> +91
+                </div>
+                <input type="tel" id="authMobileInput" required pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10-digit mobile number" style="width:100%; border:none; outline:none; padding:0.65rem 0.85rem; font-size:0.95rem; font-weight:600; letter-spacing:0.5px;">
+              </div>
+              <small style="color:#64748B; font-size:0.73rem; display:block; margin-top:0.3rem;">We will send a 4-digit verification OTP on this number.</small>
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.35rem;">
+                Your Full Name (Optional for first-time login)
+              </label>
+              <input type="text" id="authNameInput" placeholder="e.g. Rahul Sharma" style="width:100%; padding:0.65rem 0.85rem; border:1px solid #CBD5E1; border-radius:10px; font-size:0.9rem;">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" id="btnSendOtp" style="padding:0.75rem 1rem; border-radius:10px; font-weight:700; font-size:0.95rem;">
+              Send Verification OTP →
+            </button>
+          </form>
+
+          <p style="font-size:0.75rem; color:#94A3B8; text-align:center; margin-top:1.25rem; line-height:1.4;">
+            By logging in, you agree to Engineer's Diary's <a href="#" onclick="openLegalModal('terms')" style="color:#2563EB; text-decoration:underline;">Terms</a> & <a href="#" onclick="openLegalModal('privacy')" style="color:#2563EB; text-decoration:underline;">Privacy Policy</a>.
+          </p>
+        </div>
+
+        <!-- STEP 2: OTP VERIFICATION -->
+        <div id="authStep2Otp" style="display:none;">
+          <div style="text-align:center; margin-bottom:1.5rem;">
+            <span style="font-size:0.82rem; color:#64748B;">OTP sent to</span>
+            <div style="display:flex; align-items:center; justify-content:center; gap:0.4rem; margin-top:0.25rem;">
+              <strong id="authTargetPhoneDisplay" style="font-size:1rem; color:#0F172A;">+91 98765 43210</strong>
+              <button type="button" onclick="editAuthPhone()" style="background:none; border:none; color:#2563EB; font-size:0.8rem; font-weight:700; cursor:pointer; text-decoration:underline;">Edit</button>
+            </div>
+          </div>
+
+          <form onsubmit="handleVerifyOtp(event)">
+            <!-- 4 OTP Input Boxes -->
+            <div style="display:flex; justify-content:center; gap:0.75rem; margin-bottom:1.5rem;">
+              <input type="text" maxlength="1" class="otp-digit-box" id="otpDigit1" oninput="handleOtpInput(1, this, event)" onkeydown="handleOtpKeydown(1, event)" required autofocus>
+              <input type="text" maxlength="1" class="otp-digit-box" id="otpDigit2" oninput="handleOtpInput(2, this, event)" onkeydown="handleOtpKeydown(2, event)" required>
+              <input type="text" maxlength="1" class="otp-digit-box" id="otpDigit3" oninput="handleOtpInput(3, this, event)" onkeydown="handleOtpKeydown(3, event)" required>
+              <input type="text" maxlength="1" class="otp-digit-box" id="otpDigit4" oninput="handleOtpInput(4, this, event)" onkeydown="handleOtpKeydown(4, event)" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" id="btnVerifyOtp" style="padding:0.75rem 1rem; border-radius:10px; font-weight:700; font-size:0.95rem;">
+              Verify & Proceed to Dashboard →
+            </button>
+          </form>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.25rem; font-size:0.8rem;">
+            <span id="resendOtpTimer" style="color:#64748B;">Resend OTP in <strong id="otpSecondsCount">30</strong>s</span>
+            <button id="btnResendOtp" type="button" onclick="resendOtp()" style="display:none; background:none; border:none; color:#2563EB; font-weight:700; cursor:pointer; text-decoration:underline;">
+              Resend OTP
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. ORDER RECEIPT & DETAILS MODAL -->
+  <div class="modal-overlay" id="adminReceiptModal" onclick="if(event.target.id==='adminReceiptModal') closeReceiptModal()">
+    <div class="modal-dialog modal-md" style="max-width:540px; padding:1.5rem;">
+      <button class="modal-close-btn" onclick="closeReceiptModal()">×</button>
+      <div class="receipt-paper-box" id="adminReceiptContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 7C. PAYMENT RECEIPT AUTHENTICITY & ANTI-FRAUD VERIFIER MODAL -->
+  <div class="modal-overlay" id="receiptVerifyModal" onclick="if(event.target.id==='receiptVerifyModal') closeReceiptVerifyModal()">
+    <div class="modal-dialog modal-md" style="max-width:560px; padding:1.75rem;">
+      <button class="modal-close-btn" onclick="closeReceiptVerifyModal()">×</button>
+      
+      <!-- Top Header -->
+      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+        <span style="font-size:1.6rem;">🛡️</span>
+        <h3 style="font-size:1.35rem; color:#0F172A; margin:0;">Receipt Authenticity & Anti-Fraud Verifier</h3>
+      </div>
+      <p style="font-size:0.85rem; color:#64748B; margin-bottom:1.25rem;">
+        Official Indian UPI & Store Ledger Verification Engine. Verify whether any payment receipt or UPI UTR is genuine, bank-settled, and registered in Engineer's Diary Official Database.
+      </p>
+
+      <!-- Input Form -->
+      <form onsubmit="runReceiptVerificationAudit(event)" style="display:flex; gap:0.5rem; margin-bottom:1.25rem;">
+        <div style="position:relative; flex-grow:1;">
+          <input type="text" id="verifyQueryInput" placeholder="Enter Order ID (e.g. ED-98248) or 12-digit UTR" required style="width:100%; padding:0.65rem 0.85rem 0.65rem 2.2rem; border:1px solid #CBD5E1; border-radius:10px; font-size:0.9rem; font-family:var(--font-mono, monospace);">
+          <span style="position:absolute; left:0.75rem; top:50%; transform:translateY(-50%); font-size:1rem; color:#64748B;">🔍</span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.25rem; font-weight:700; white-space:nowrap; border-radius:10px;">
+          Verify Now →
+        </button>
+      </form>
+
+      <!-- Dynamic Verification Result -->
+      <div id="verifyAuditResultContainer">
+        <!-- Default State / Checklist -->
+        <div class="fraud-audit-card">
+          <strong style="font-size:0.85rem; color:#334155; display:block; margin-bottom:0.65rem;">Active Anti-Fraud Verification Protocols:</strong>
+          <div class="audit-checklist-row">
+            <span class="audit-check-icon">✓</span>
+            <div>
+              <strong style="color:#0F172A; font-size:0.82rem; display:block;">Central Store Ledger Audit</strong>
+              <span style="color:#64748B; font-size:0.74rem;">Checks order existence against immutable store transaction log.</span>
+            </div>
+          </div>
+          <div class="audit-checklist-row">
+            <span class="audit-check-icon">✓</span>
+            <div>
+              <strong style="color:#0F172A; font-size:0.82rem; display:block;">12-Digit Bank UTR Duplicate Check</strong>
+              <span style="color:#64748B; font-size:0.74rem;">Prevents duplicate receipt reuse and fake screenshot submissions.</span>
+            </div>
+          </div>
+          <div class="audit-checklist-row">
+            <span class="audit-check-icon">✓</span>
+            <div>
+              <strong style="color:#0F172A; font-size:0.82rem; display:block;">HMAC Digital Cryptographic Signature</strong>
+              <span style="color:#64748B; font-size:0.74rem;">Mathematically guarantees student name, amount, and timestamp have not been altered.</span>
+            </div>
+          </div>
+          <div class="audit-checklist-row">
+            <span class="audit-check-icon">✓</span>
+            <div>
+              <strong style="color:#0F172A; font-size:0.82rem; display:block;">NPCI / UPI Settlement Status</strong>
+              <span style="color:#64748B; font-size:0.74rem;">Cross-references merchant VPA (engineersdiary@upi) payment receipt.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 8. MANUAL ORDER ENTRY / TEST ORDER MODAL -->
+  <div class="modal-overlay" id="adminAddOrderModal" onclick="if(event.target.id==='adminAddOrderModal') closeManualOrderModal()">
+    <div class="modal-dialog modal-md" style="max-width:520px;">
+      <button class="modal-close-btn" onclick="closeManualOrderModal()">×</button>
+      <div style="margin-bottom:1.25rem;">
+        <span style="font-size:0.75rem; font-weight:700; color:#4F46E5; background:#EEF2FF; padding:0.2rem 0.6rem; border-radius:99px;">STORE OWNER</span>
+        <h3 style="font-size:1.3rem; color:#0F172A; margin:0.35rem 0 0.15rem;">Record New Customer Order</h3>
+        <p style="font-size:0.82rem; color:#64748B; margin:0;">Record an offline or student direct purchase into the system.</p>
+      </div>
+
+      <form id="adminManualOrderForm" onsubmit="submitManualOrder(event)">
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Student Full Name *</label>
+          <input type="text" id="manualOrderName" placeholder="e.g. Aditya Verma" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1rem;">
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Email Address *</label>
+            <input type="email" id="manualOrderEmail" placeholder="student@college.ac.in" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+          </div>
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Phone Number *</label>
+            <input type="tel" id="manualOrderPhone" placeholder="+91 98765 43210" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.85rem;">
+          </div>
+        </div>
+
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">College / University Name</label>
+          <input type="text" id="manualOrderCollege" placeholder="e.g. BITS Pilani • CSE" style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem;">
+        </div>
+
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Select Product / Note *</label>
+          <select id="manualOrderProductSelect" onchange="handleManualProductChange(this.value)" required style="width:100%; padding:0.65rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem; background:#FFF;">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.5rem;">
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Price (₹) *</label>
+            <input type="number" id="manualOrderPrice" required style="width:100%; padding:0.6rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.9rem; font-weight:700; color:#2563EB;">
+          </div>
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:#334155; display:block; margin-bottom:0.3rem;">Payment Mode</label>
+            <select id="manualOrderPaymentMode" style="width:100%; padding:0.65rem 0.8rem; border:1px solid #CBD5E1; border-radius:8px; font-size:0.88rem; background:#FFF;">
+              <option value="UPI QR (Verified)">UPI QR (Verified)</option>
+              <option value="Google Pay">Google Pay</option>
+              <option value="PhonePe">PhonePe</option>
+              <option value="Paytm">Paytm</option>
+              <option value="Cash / Offline">Cash / Direct</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:0.75rem;">
+          <button type="submit" class="btn btn-primary flex-grow" style="padding:0.75rem; font-weight:700;">
+            ✓ Confirm & Record Order
+          </button>
+          <button type="button" class="btn btn-outline" onclick="closeManualOrderModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 10. INTERACTIVE CODING PROBLEM & RUNNER MODAL -->
+  <!-- 10. INTERACTIVE CODING PROBLEM & RUNNER MODAL (WORLD-CLASS LEETCODE/VSCODE STYLE) -->
+  <div class="modal-overlay" id="codeProblemModal" onclick="if(event.target.id==='codeProblemModal') closeCodeProblemModal()">
+    <div class="modal-dialog coding-ide-dialog" id="codingIdeDialog">
+      
+      <!-- Top Bar -->
+      <div class="ide-top-bar">
+        <div class="ide-top-left">
+          <div class="ide-mac-dots">
+            <span class="ide-mac-dot dot-red" onclick="closeCodeProblemModal()" title="Close (Esc)"></span>
+            <span class="ide-mac-dot dot-yellow" onclick="toggleIdeConsoleCollapse()" title="Minimize Console"></span>
+            <span class="ide-mac-dot dot-green" onclick="toggleIdeFullscreen()" title="Toggle Fullscreen"></span>
+          </div>
+          <span id="codeModalDiffBadge" class="ide-diff-badge ide-diff-easy">🟢 Easy</span>
+          <h3 id="codeModalTitle" class="ide-prob-title">Two Sum</h3>
+          <span id="codeModalTopic" class="ide-topic-pill">🏷️ Arrays &amp; Hash Table</span>
+          <span id="codeModalCompany" class="ide-company-badge">🏢 Google • Amazon</span>
+        </div>
+
+        <!-- Center Navigation Tabs -->
+        <div class="ide-nav-tabs">
+          <button class="ide-tab-btn active" id="ideTabBtnDesc" onclick="switchIdeLeftTab('desc')">📋 Description</button>
+          <button class="ide-tab-btn" id="ideTabBtnHints" onclick="switchIdeLeftTab('hints')">💡 Hints (<span id="ideHintsCount">2</span>)</button>
+          <button class="ide-tab-btn" id="ideTabBtnSubmissions" onclick="switchIdeLeftTab('submissions')">⚡ Submissions</button>
+        </div>
+
+        <!-- Right Tools -->
+        <div class="ide-top-right">
+          <div class="ide-timer-box" id="ideTimerBtn" onclick="toggleIdeTimer()" title="Interview Practice Stopwatch">
+            <span>⏱️</span>
+            <span id="ideTimerDisplay">00:00</span>
+          </div>
+          <select id="codeModalLangSelect" class="ide-lang-select" onchange="changeCodeModalLanguage(this.value)">
+            <option value="Python">🐍 Python 3</option>
+            <option value="C++">⚡ C++ (GCC 12)</option>
+            <option value="Java">☕ Java 17</option>
+            <option value="SQL">🐬 SQL (MySQL 8)</option>
+          </select>
+          <button class="ide-icon-btn" onclick="toggleIdeFullscreen()" title="Toggle Fullscreen">⛶</button>
+          <button class="ide-close-btn" onclick="closeCodeProblemModal()" title="Close Modal">✕</button>
+        </div>
+      </div>
+
+      <!-- Main Split Area -->
+      <div class="ide-main-grid" id="ideMainGrid">
+        
+        <!-- Left Pane: Problem Description, Examples & Hints -->
+        <div class="ide-left-pane" id="ideLeftPane">
+          
+          <!-- TAB 1: Description -->
+          <div id="idePaneDesc">
+            <div style="margin-bottom:1.25rem;">
+              <h4 class="ide-section-title">
+                <span>📄</span> Problem Statement
+              </h4>
+              <p id="codeModalDesc" class="ide-prob-desc-text">
+                Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+              </p>
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <h5 class="ide-section-title">
+                <span>🧪</span> Examples &amp; Test Cases:
+              </h5>
+              <div id="codeModalExamples" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Constraints & Complexity Box -->
+            <div class="ide-constraints-box">
+              <h5 class="ide-section-title" style="margin-bottom:0.5rem;">
+                <span>⚡</span> Constraints &amp; Complexity
+              </h5>
+              <div class="ide-complexity-badges">
+                <span class="ide-comp-pill" id="codeModalTimeComp">⏱️ Time: O(N)</span>
+                <span class="ide-comp-pill pill-space" id="codeModalSpaceComp">💾 Space: O(N)</span>
+                <span style="display:none;" id="codeModalComplexity">Time: O(N) | Space: O(N)</span>
+              </div>
+              <ul class="ide-constraints-list" id="codeModalConstraintsList">
+                <li><code>2 &lt;= nums.length &lt;= 10⁴</code></li>
+                <li><code>-10⁹ &lt;= nums[i] &lt;= 10⁹</code></li>
+                <li><code>-10⁹ &lt;= target &lt;= 10⁹</code></li>
+                <li>Only one valid answer exists.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TAB 2: Hints -->
+          <div id="idePaneHints" style="display:none;">
+            <h4 class="ide-section-title">
+              <span>💡</span> Algorithmic Hints
+            </h4>
+            <p style="font-size:0.84rem; color:#94A3B8; margin-bottom:1rem;">
+              Try to solve the problem before expanding hints to simulate an authentic FAANG technical interview.
+            </p>
+            <div id="ideHintsContainer">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- TAB 3: Submissions -->
+          <div id="idePaneSubmissions" style="display:none;">
+            <h4 class="ide-section-title">
+              <span>⚡</span> Your Submission History
+            </h4>
+            <div id="ideSubmissionsList">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Pane: Code Editor, Console & Actions -->
+        <div class="ide-right-pane">
+          
+          <!-- Editor Top Bar -->
+          <div class="ide-editor-toolbar">
+            <div class="ide-file-tab">
+              <span id="ideLangFileIcon">🐍</span>
+              <span>solution.<span id="codeEditorExtension">py</span></span>
+            </div>
+            <div class="ide-editor-actions">
+              <button class="ide-mini-btn" onclick="formatCodeEditor()" title="Auto-Format Code">⌨️ Format</button>
+              <button class="ide-mini-btn" onclick="toggleEditorFontSize()" title="Toggle Font Size">Aa Size</button>
+              <button class="ide-mini-btn" onclick="copyEditorCode()" title="Copy Code">📋 Copy</button>
+              <button class="ide-mini-btn" onclick="resetProblemStarterCode()" style="color:#60A5FA;" title="Reset Template">↺ Reset</button>
+            </div>
+          </div>
+
+          <!-- Editor Wrapper with Line Numbers Gutter -->
+          <div class="ide-editor-wrapper">
+            <div class="ide-line-gutter" id="ideLineGutter">1</div>
+            <textarea id="codeEditorInput" class="ide-code-textarea" spellcheck="false" placeholder="Write your solution here..."></textarea>
+          </div>
+
+          <!-- Editor Status Bar -->
+          <div class="ide-editor-statusbar">
+            <span id="ideCursorPosition">Ln 1, Col 1</span>
+            <span>UTF-8 &nbsp;•&nbsp; 4 Spaces &nbsp;•&nbsp; <span id="ideStatusLang">Python 3.11</span> &nbsp;•&nbsp; Sandbox Active</span>
+          </div>
+
+          <!-- Integrated Console & Testcase Runner -->
+          <div class="ide-console-panel" id="ideConsolePanel">
+            <div class="ide-console-header">
+              <div class="ide-console-tabs">
+                <button class="ide-console-tab-btn active" id="ideConsoleTabTestcase" onclick="switchIdeConsoleTab('testcase')">
+                  🧪 Testcase (<span id="ideCasesCount">2</span>)
+                </button>
+                <button class="ide-console-tab-btn" id="ideConsoleTabOutput" onclick="switchIdeConsoleTab('output')">
+                  📟 Run Output
+                </button>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span id="codeExecutionStatusBadge" class="ide-console-status-pill"></span>
+                <button class="ide-mini-btn" onclick="toggleIdeConsoleCollapse()" id="ideConsoleCollapseBtn" title="Toggle Console Height">▲</button>
+              </div>
+            </div>
+
+            <!-- Console Body -->
+            <div class="ide-console-body">
+              <!-- View 1: Test Cases Tab -->
+              <div id="ideConsoleViewTestcase">
+                <div class="ide-cases-nav" id="ideCasesNav">
+                  <!-- Case pills rendered dynamically -->
+                </div>
+                <div class="ide-case-params" id="ideCaseParams">
+                  <!-- Param inputs rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- View 2: Run Output Tab -->
+              <div id="ideConsoleViewOutput" style="display:none;">
+                <div id="codeTerminalOutput" class="ide-terminal-text">Ready to test against test cases. Click 'Run Code' or 'Submit Solution' to execute in live browser sandbox...</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="ide-bottom-bar">
+            <div class="ide-bottom-left">
+              <button class="ide-console-toggle-btn" onclick="toggleIdeConsoleCollapse()" id="ideBottomConsoleBtn">
+                <span>Console</span> <span id="ideConsoleArrowIcon">▼</span>
+              </button>
+              <div class="ide-kbd-hint">
+                <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run
+              </div>
+            </div>
+            <div class="ide-bottom-right">
+              <button class="btn-ide-run" onclick="runProblemCode()" title="Run against test cases (Ctrl + Enter)">
+                <span>▶</span> Run Code
+              </button>
+              <button class="btn-ide-submit" onclick="submitProblemSolution()" title="Submit solution for XP and streak">
+                <span>🚀</span> Submit Solution (+50 XP)
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 11. PROJECT DETAIL & VIVA ACCORDION MODAL -->
+  <div class="modal-overlay" id="projectDetailModal" onclick="if(event.target.id==='projectDetailModal') closeProjectModal()">
+    <div class="modal-dialog modal-lg" style="max-height:88vh; overflow-y:auto; padding:2rem;">
+      <button class="modal-close-btn" onclick="closeProjectModal()">×</button>
+      
+      <div id="projectModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. AI / ML ROADMAP STEP MODAL -->
+  <div class="modal-overlay" id="roadmapStepModal" onclick="if(event.target.id==='roadmapStepModal') closeRoadmapStepModal()">
+    <div class="modal-dialog modal-md" style="max-width:580px; max-height:88vh; overflow-y:auto; padding:2rem;">
+      <button class="modal-close-btn" onclick="closeRoadmapStepModal()">×</button>
+      
+      <div id="roadmapStepModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. ASK A DOUBT COMMUNITY MODAL -->
+  <div class="modal-overlay" id="askDoubtModal" onclick="if(event.target.id==='askDoubtModal') closeAskDoubtModal()">
+    <div class="modal-dialog modal-md" style="max-width:520px; padding:2rem;">
+      <button class="modal-close-btn" onclick="closeAskDoubtModal()">×</button>
+      
+      <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+        <span style="font-size:1.6rem;">💬</span>
+        <h3 style="font-size:1.3rem; margin:0; color:var(--text-main);">Ask an Engineering Doubt</h3>
+      </div>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.5rem;">
+        Get answers and algorithmic advice from 50,000+ peers and verified alumni.
+      </p>
+
+      <form onsubmit="submitAskDoubt(event)">
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.82rem; font-weight:700; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+            Doubt / Discussion Title *
+          </label>
+          <input type="text" id="doubtTitleInput" placeholder="e.g. How to optimize Dijkstra for sparse graphs?" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-light); border-radius:8px; font-size:0.9rem; background:var(--bg-card); color:var(--text-main);">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1rem;">
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              Category / Topic *
+            </label>
+            <select id="doubtCategorySelect" required style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-light); border-radius:8px; font-size:0.88rem; background:var(--bg-card); color:var(--text-main);">
+              <option value="Doubt Discussion">Doubt Discussion</option>
+              <option value="Coding Challenge">Coding Challenge</option>
+              <option value="Project Showcase">Project Showcase</option>
+              <option value="Placement Experience">Placement Experience</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:0.82rem; font-weight:700; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+              College / University
+            </label>
+            <input type="text" id="doubtCollegeInput" placeholder="e.g. NIT Trichy • CSE" style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-light); border-radius:8px; font-size:0.88rem; background:var(--bg-card); color:var(--text-main);">
+          </div>
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <label style="font-size:0.82rem; font-weight:700; color:var(--text-main); display:block; margin-bottom:0.3rem;">
+            Detailed Question &amp; Code Fragment *
+          </label>
+          <textarea id="doubtDescInput" rows="4" placeholder="Explain the issue, error log, or what you tried..." required style="width:100%; padding:0.65rem 0.85rem; border:1px solid var(--border-light); border-radius:8px; font-size:0.88rem; background:var(--bg-card); color:var(--text-main); resize:vertical; font-family:var(--font-sans);"></textarea>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+          <button type="button" class="btn btn-secondary" onclick="closeAskDoubtModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="padding:0.65rem 1.5rem; font-weight:700;">
+            🚀 Post Question
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JAVASCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>
